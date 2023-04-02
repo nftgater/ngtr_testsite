@@ -1,0 +1,19 @@
+{
+  "name": "bootstrap4-website",
+  "version": "1.0.0",
+  "description": "Third party test site for the OPS",
+  "main": "index.html",
+  "scripts": {
+    "test": "python3 -m http.server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UnburnedAlliance/naptcha-3p-lander.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UnburnedAlliance/naptcha-3p-lander/issues"
+  },
+  "homepage": "https://github.com/UnburnedAlliance/naptcha-3p-lander#readme"
+}

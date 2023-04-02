@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
+/* Original CSS of template */
 body{
 	padding: 0;
 	margin: 0;
-	background:#f4f4f4;
+	background:#cff0ee;
 
 }
 html,h1,h2,h3,h4,h5,h6,a{
@@ -27,7 +28,7 @@ html,h1,h2,h3,h4,h5,h6,a{
 }
 
 .navbar{
-	background:#F97300;
+	background:#052c4d;
 }
 .nav-link , .navbar-brand{
 	color: #f4f4f4;
@@ -38,7 +39,7 @@ html,h1,h2,h3,h4,h5,h6,a{
 }
 .nav-link:hover{
 	background: #f4f4f4;
-	color: #f97300;
+	color: #052c4d;
 
 }
 .navbar-collapse{
@@ -62,28 +63,31 @@ html,h1,h2,h3,h4,h5,h6,a{
 	min-width: 100%;
 	left: 0;
 	top: 0;
-	background: rgba(244, 244, 244, 0.79);
+	background: rgba(11, 33, 66, 0.79);
 }
 .description{
     position: absolute;
     top: 30%;
+	width: 100%;
     margin: auto;
-    padding: 2em;
-
+    padding: 2em 15vw;
+	text-align: center;
 }
 .description h1{
-	color:#F97300 ;
+	color:#4ff900 ;
 }
 .description p{
-	color:#666;
+	color:#fff;
+	margin-top: 1em;
 	font-size: 20px;
-	width: 50%;
+	padding-left: 2em;
+	padding-right: 2em;
 	line-height: 1.5;
 }
 .description button{
-	border:1px  solid #F97300;
-	background:#F97300;
-	color:#fff;
+	border:1px  solid #052c4d;
+	background:#e0e0e0;
+	color:#000;
 }
 .about{
 	margin: 4em 0;
@@ -91,7 +95,7 @@ html,h1,h2,h3,h4,h5,h6,a{
 	position: relative;
 }
 .about h1{
-	color:#F97300;
+	color:#c91313;
 	margin: 2em;
 }
 .about img{
@@ -124,7 +128,7 @@ html,h1,h2,h3,h4,h5,h6,a{
     position: relative;	
 }
 .portfolio h1{
-	color:#F97300;
+	color:#c91313;
 	margin: 2em;	
 }
 .portfolio img{
@@ -136,6 +140,10 @@ html,h1,h2,h3,h4,h5,h6,a{
 
 }
 
+.text-muted {
+	color: black !important
+}
+
 /*blog style*/
 
 .blog{
@@ -143,7 +151,7 @@ html,h1,h2,h3,h4,h5,h6,a{
 	position: relative;	
 }
 .blog h1{
-	color:#F97300;
+	color:#c91313;
 	margin: 2em;	
 }
 .blog .card{
@@ -159,7 +167,7 @@ html,h1,h2,h3,h4,h5,h6,a{
  }	
 }
 .blog .card-title{
-	color:#F97300;
+	color:#052c4d;
 	 
 }
 .blog .card-body{
@@ -171,7 +179,7 @@ html,h1,h2,h3,h4,h5,h6,a{
 
 }
 .team h1{
-	color:#F97300;
+	color:#c91313;
 	margin: 2em;	
 }
 .team .item{
@@ -179,7 +187,7 @@ html,h1,h2,h3,h4,h5,h6,a{
 	overflow: hidden;	
 }
 .team .des{
-	background: #F97300;
+	background: #052c4d;
 	color: #fff;
 	text-align: center;
 	border-top-right-radius: 93%;
@@ -192,11 +200,12 @@ html,h1,h2,h3,h4,h5,h6,a{
 }
 .team .item:hover .des{
 	height: 100%;
-	background:#f973007d;
+	background:transparent;
+	border-radius: 22px;
     position: absolute;
 	width: 89%;
 	padding: 5em;
-	top: 0;
+	
 	border-top-right-radius: 0;
 }
 .contact-form{
@@ -205,18 +214,43 @@ html,h1,h2,h3,h4,h5,h6,a{
 }
 
 .contact-form h1{
-	padding:2em 1px;
-	color: #F97300; 
+	
+	color: #c91313; 
 }
 .contact-form .right{
 	max-width: 600px;
 }
 .contact-form .right .btn-secondary{
-	background:  #F97300;
+	background:  #c91313;
 	color: #fff;
 	border:0;
 }
 .contact-form .right .form-control::placeholder{
 	color: #888;
 	font-size: 16px;
+}
+
+
+.btn-outline-secondary:hover {
+	background-color: #4ff900; 
+	border-color: yellow;
+	font-weight: bold;
+	color: #000;
+}
+
+.container {
+	
+}
+
+.containerbig {
+	max-width: none;
+	padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+	width: 100%;
+}
+
+.header .container {
+	max-width: none;
 }
