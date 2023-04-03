@@ -46,14 +46,29 @@
   		This Nessie Club website serves as a testing ground for the Naptcha token gating service. Its role is to be the third-party website on which the token gate scripts will run. </p>
   		
 		<!-- OPS CODING AND REFACTORING /////////////////////////////////////////////////-->
-		<button onclick="sup()" class="btn btn-outline-secondary btn-lg">CONNECT NAMI</button>
-		<script>
-			async function sup() {
-				alert("Sup")
-			}
+		<button id="ops_start" class="btn btn-outline-secondary btn-lg" style="display:none;">CONNECT NAMI</button>
+
+		<div id="payloadInject"></div>
+
+		<script type="module">
+			import libz from 'http://localhost:3001/public/ops.js'
+			console.log("In OPS Script")
+			// Check whether there is an auth code and try it
+			// Domain I am on now (send as callback URI)
+			// 
+
+
+			// Add function to Connect button and unhide
+			await libz.Start();
+			
+
+			// Fucking around
+			
 		</script>
 
 		<!-- END OF OPS SCRIPT ////////////////////////////////////////////////////////////-->
+
+
   	</h1>
   </div>
    </div>

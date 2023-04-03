@@ -4,7 +4,9 @@
   "description": "Third party test site for the OPS",
   "main": "index.html",
   "scripts": {
-    "test": "python3 -m http.server"
+    "test": "python3 -m http.server", 
+    "dev": "python3 -m http.server", 
+    "start": "python3 -m http.server"
   },
   "repository": {
     "type": "git",
