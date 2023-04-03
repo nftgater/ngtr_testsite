@@ -48,7 +48,7 @@
 		<!-- OPS CODING AND REFACTORING /////////////////////////////////////////////////-->
 		<button id="ops_start" class="btn btn-outline-secondary btn-lg" style="display:none;">CONNECT NAMI</button>
 
-		<div id="payloadInject"></div>
+		<div id="p_inj"></div>
 
 		<script type="module">
 			import libz from 'http://localhost:3001/public/ops.js'
@@ -58,11 +58,9 @@
 			// 
 
 
-			// Add function to Connect button and unhide
+			// Start(): Check for authcode and try to get one. If not, generate a button in payloadInject with a click listener added 
+			//    for libz.newAuth() which you need to make. 
 			await libz.Start();
-			
-
-			// Fucking around
 			
 		</script>
 
