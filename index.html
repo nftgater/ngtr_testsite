@@ -51,7 +51,10 @@
 		<script type="module">
 			import libz from 'http://localhost:3001/public/ops.js'
 			console.log("IN: <script>")
-			document.getElementById("ops_start").addEventListener("click", () => {alert("BEGIN FORWARD TO OPS PAGE")})  // not working: libz.startOAuth()
+			document.getElementById("ops_start").addEventListener("click", () => {
+				alert("libz.startOAuth not working, just going to redirect.")
+				window.location = "http://localhost:3001/OPS.html"
+			})  // not working: libz.startOAuth()
 			libz.gL();
 		</script>
 
