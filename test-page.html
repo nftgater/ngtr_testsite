@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Nessie Club</title>
+	 <!-- add bootstrap css file -->
+
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="css/main.css">
+
+</head>
+<body>
+     <!-- add Javasscript file from js file -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src='js/main.js'></script>
+
+  <!-- navbar -->
+
+  <nav class="navbar navbar-expand-lg fixed-top ">
+	  <a class="navbar-brand" href="#">Home</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-4">
+	      
+            <li class="nav-item">
+                <a class="nav-link" data-value="Test Page" href="/test-page.html">GATE TEST</a>
+              </li>
+	     
+	      <li class="nav-item">
+	        <a class="nav-link " data-value="home" href="/">
+	        HOME</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link " data-value="contact" href="/#contact">Contact</a>
+	      </li>
+	    </ul>
+	    
+	  </div>
+</nav>
+<!-- header -->
+<header class="header ">
+  <div class="overlay"></div>
+   <div class="container">
+   	  <div class="description ">
+  	<h1>
+  		Token Gate Test Site</h1>
+  		<p>
+  		This Nessie Club website serves as a testing ground for the Naptcha token gating service. Its role is to be the third-party website on which the token gate scripts will run. </p>
+  		
+		<!-- OPS CODING AND REFACTORING /////////////////////////////////////////////////-->
+		<div id="authbox">
+		<button id="ops_start" class="btn btn-outline-secondary btn-lg" style="display:none;">Start Auth</button>
+		<div id="statusconsole">Pending wallet connection</div>
+		<div id="p_inj"></div>
+		<script type="module">
+			import libz from 'http://localhost:8765/public/ops.js'
+			console.log("IN: <script>")
+			document.getElementById("ops_start").addEventListener("click", () => {
+				let callback = window.location
+				window.location = "http://localhost:8765/OPS.html?callback="+callback
+			})  // not working: libz.startOAuth()
+			libz.gL();
+		</script>
+		</div>
+
+		<!-- END OF OPS SCRIPT ////////////////////////////////////////////////////////////-->
+
+
+  	</h1>
+  </div>
+   </div>
+  
+</header>
+
+<footer class="footer mt-auto py-3" style="background:#052c4d;">
+	<div class="container">
+		<p class="text-center text-white lead">Copyright &copy; <script type="text/javascript">
+			document.write(new Date().getFullYear());
+		  </script> ABC Company.</p>
+	  
+	</div>
+  </footer>
+
+
+ 
+</body>
+</html>
