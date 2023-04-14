@@ -9,40 +9,39 @@
 
 </head>
 <body>
-     <!-- add Javasscript file from js file -->
+     <!-- add Javasscript file from js file 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src='js/main.js'></script>
+-->
+
 
   <!-- navbar -->
 
-  <nav class="navbar navbar-expand-lg fixed-top ">
-	  <a class="navbar-brand" href="#">Home</a>
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
-
-	  <div class="collapse navbar-collapse " id="navbarSupportedContent">
-	    <ul class="navbar-nav mr-4">
-	      
-            <li class="nav-item">
-                <a class="nav-link" data-value="Test Page" href="/test-page.html">GATE TEST</a>
-              </li>
-	     
-	      <li class="nav-item">
-	        <a class="nav-link " data-value="home" href="/">
-	        HOME</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link " data-value="contact" href="/#contact">Contact</a>
-	      </li>
-	    </ul>
-	    
-	  </div>
+  <nav class="navbar navbar-expand-lg ">
+	
+	
+	<ul class="navbar-nav mr-4">
+		
+	 
+   
+	<li class="nav-item">
+	  <a class="nav-link " data-value="home" href="/">
+	  HOME</a>
+	</li>
+	 <li class="nav-item">
+		  <a class="nav-link" data-value="Test Page" href="/test-page.html">GATE TEST</a>
+		</li>
+	<li class="nav-item">
+	  <a class="nav-link " data-value="contact" href="/#contact">Contact</a>
+	</li>
+  </ul>
+  
+</div>
 </nav>
 <!-- header -->
 <header class="header ">
-  <div class="overlay"></div>
+  <div class="overlay" style="position:absolute;min-height: 100%;min-width: 100%;left:0;top:0;background:rgba(11, 33, 66, 0.79)"></div>
    <div class="container">
    	  <div class="description ">
   	<h1>
@@ -55,7 +54,7 @@
 		<button id="ops_start" class="btn btn-outline-secondary btn-lg" style="display:none;">Start Auth</button>
 		<div id="statusconsole">Pending wallet connection</div>
 		<div id="p_inj"></div>
-		<script type="module">
+		<script async type="module">
 			import libz from 'http://localhost:8765/public/ops.js'
 			console.log("IN: <script>")
 			document.getElementById("ops_start").addEventListener("click", () => {
@@ -84,7 +83,9 @@
 	</div>
   </footer>
 
-
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src='js/main.js'></script>
  
 </body>
 </html>
