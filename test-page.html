@@ -9,11 +9,11 @@
 
 </head>
 <body>
-     <!-- add Javasscript file from js file 
+
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src='js/main.js'></script>
--->
+
 
 
   <!-- navbar -->
@@ -48,11 +48,14 @@
   		Token Gate Test Site</h1>
   		<p>
   		This Nessie Club website serves as a testing ground for the Naptcha token gating service. Its role is to be the third-party website on which the token gate scripts will run. </p>
-  		
+  		<script>
+			console.log("importing 3P css.")
+			import 'http://localhost:8765/public/3P.css';
+		</script>
 		<!-- OPS CODING AND REFACTORING /////////////////////////////////////////////////-->
 		<div id="authbox">
 		<button id="ops_start" class="btn btn-outline-secondary btn-lg" style="display:none;">Start Auth</button>
-		<div id="statusconsole">Pending wallet connection</div>
+		<div id="statusconsole"></div>
 		<div id="p_inj"></div>
 		<script async type="module">
 			import libz from 'http://localhost:8765/public/ops.js'

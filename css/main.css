@@ -254,3 +254,9 @@ html,h1,h2,h3,h4,h5,h6,a{
 .header .container {
 	max-width: none;
 }
+
+
+.statusconsole {
+	background-color: #000;
+	color: #20C20E;
+}
