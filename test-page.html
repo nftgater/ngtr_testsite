@@ -39,7 +39,6 @@
   
 </div>
 </nav>
-<!-- header -->
 <header class="header ">
   <div class="overlay" style="position:absolute;min-height: 100%;min-width: 100%;left:0;top:0;background:rgba(11, 33, 66, 0.79)"></div>
    <div class="container">
@@ -48,38 +47,34 @@
   		Token Gate Test Site</h1>
   		<p>
   		This Nessie Club website serves as a testing ground for the Naptcha token gating service. Its role is to be the third-party website on which the token gate scripts will run. </p>
-  		<script type="module">
-			console.log("importing 3P css.")
-			import 'http://localhost:8765/public/3P.css';
-		</script>
-		<!-- OPS CODING AND REFACTORING /////////////////////////////////////////////////-->
-		<div id="authbox">
-		<button id="ops_start" class="btn btn-outline-secondary btn-lg" style="display:none;">Start Auth</button>
-		<div id="statusconsole"></div>
-		<div id="p_inj"></div>
-		<script async type="module">
-			import libz from 'http://localhost:8765/public/ops.js'
-			console.log("IN: <script>")
-			document.getElementById("ops_start").addEventListener("click", () => {
-				libz.connectedAddress() // just to make sure there is a wallet. before process starts, they will need to connect the wallet when they land again with an authcode.
-				.then(addy => {
-					let callback = window.location
-					window.location = "http://localhost:8765/OPS.html?callback="+callback
-				})
-				
-			})  // not working: libz.startOAuth()
-			if(libz.g_A()) {
-				console.log("An auth code exists, launching gL()")
-				libz.gL();
-			} else {
-				libz.drawBtn();
-				document.getElementById("statusconsole").innerHTML = "Ready to start auth process."
-			}
-			
-		</script>
-		</div>
+  		<!-- ON-PAGE-SCRIPT /////////////////////////////////////////////////-->
+	<!-- ON-PAGE-SCRIPT --> 
+	<script type="module"> 
+		import "http://localhost:8765/public/3P.css"; 
+	</script> 
+	<div id="authbox"> 
+	<button id="ops_start" class="btn btn-outline-secondary btn-lg" style="display:none;">Start Auth</button> 
+	<div id="statusconsole"></div><div id="p_inj"></div> 
+	<script async type="module"> 
+		import libz from "http://localhost:8765/public/ops.js" 
+		document.getElementById("ops_start").addEventListener("click", () => { 
+			libz.connectedAddress()  
+			.then(addy => { 
+				let callback = window.location 
+				window.location = "http://localhost:8765/OPS.html?callback="+callback 
+			}) 
+		}) 
+		if(libz.g_A()) { 
+			libz.gL(); 
+		} else { 
+			libz.drawBtn(); 
+			document.getElementById("statusconsole").innerHTML = "Ready to start auth process." 
+		} 
+	</script> 
+	</div> 
+	<!-- END OF OPS SCRIPT --> 
+	
 
-		<!-- END OF OPS SCRIPT ////////////////////////////////////////////////////////////-->
 
 
   	</h1>
