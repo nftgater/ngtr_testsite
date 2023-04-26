@@ -7,7 +7,7 @@
     "test": "python3 -m http.server",
     "dev": "python3 -m http.server",
     "start": "python3 -m http.server",
-    "serve": "webpack serve --mode development"
+    "serve": "webpack serve --mode production"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,12 @@
   },
   "homepage": "https://github.com/UnburnedAlliance/naptcha-3p-lander#readme",
   "devDependencies": {
+    "@nuintun/qrcode": "^3.3.1",
+    "css-loader": "^6.7.3",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.1",
     "path": "^0.12.7",
+    "qrcode": "^1.5.3",
     "webpack": "^5.81.0",
     "webpack-cli": "^5.0.2",
     "webpack-dev-server": "^4.13.3"

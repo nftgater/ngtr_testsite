@@ -3,6 +3,7 @@ import { Address } from '../node_modules/@emurgo/cardano-serialization-lib-asmjs
 const payloadURL = "https://naptcha-web-api-that-actually-fucking.onrender.com/ops/p/"; // was "http://localhost:3000/ops/p/"
 // Is CSS working?
 import "../public/3P.css"
+import { LoaderTargetPlugin } from 'webpack';
 
 async function connectedAddress() {
 	console.log('in connectedAddress()')
