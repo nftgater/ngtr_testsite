@@ -50,18 +50,18 @@
   		<!-- ON-PAGE-SCRIPT /////////////////////////////////////////////////-->
 	<!-- ON-PAGE-SCRIPT --> 
 	<script type="module"> 
-		import "https://64492b55fd81d60007bd9313--elegant-toffee-9c7b27.netlify.app/public/3P.css"; 
+		import "https://naptcha3p.nyc3.digitaloceanspaces.com/3P.css"; 
 	</script> 
 	<div id="authbox"> 
 	<button id="ops_start" class="btn btn-outline-secondary btn-lg" style="display:none;">Start Auth</button> 
 	<div id="statusconsole"></div><div id="p_inj"></div> 
 	<script async type="module"> 
-		import libz from "https://64492b55fd81d60007bd9313--elegant-toffee-9c7b27.netlify.app/public/ops.js" 
+		import libz from "https://naptcha3p.nyc3.digitaloceanspaces.com/ops.js" 
 		document.getElementById("ops_start").addEventListener("click", () => { 
 			libz.connectedAddress()  
 			.then(addy => { 
 				let callback = window.location 
-				window.location = "https://64492b55fd81d60007bd9313--elegant-toffee-9c7b27.netlify.app/OPS.html?callback="+callback 
+				window.location = "https://64492b55fd81d60007bd9313--elegant-toffee-9c7b27.netlify.app/OPS.html?callback="+callback  // Not correct -- need a permanent Naptcha OPS URL
 			}) 
 		}) 
 		if(libz.g_A()) { 

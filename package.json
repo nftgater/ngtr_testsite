@@ -4,8 +4,8 @@
   "description": "Third party test site for the OPS",
   "main": "index.html",
   "scripts": {
-    "test": "python3 -m http.server", 
-    "dev": "python3 -m http.server", 
+    "test": "python3 -m http.server",
+    "dev": "python3 -m http.server",
     "start": "python3 -m http.server"
   },
   "repository": {
@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/UnburnedAlliance/naptcha-3p-lander/issues"
   },
-  "homepage": "https://github.com/UnburnedAlliance/naptcha-3p-lander#readme"
+  "homepage": "https://github.com/UnburnedAlliance/naptcha-3p-lander#readme",
+  "devDependencies": {
+    "path": "^0.12.7",
+    "webpack": "^5.81.0"
+  }
 }
