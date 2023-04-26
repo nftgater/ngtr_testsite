@@ -38,8 +38,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'index.html'
+    filename: 'main.js'
   },
-  mode: 'production'
+  mode: "production"
 }
 
