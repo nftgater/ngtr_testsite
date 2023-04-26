@@ -6,7 +6,8 @@
   "scripts": {
     "test": "python3 -m http.server",
     "dev": "python3 -m http.server",
-    "start": "python3 -m http.server"
+    "start": "python3 -m http.server", 
+    "serve": "webpack serve --mode development"
   },
   "repository": {
     "type": "git",
