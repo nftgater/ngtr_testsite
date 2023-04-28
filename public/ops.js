@@ -1,10 +1,11 @@
-import { Encoder } from '../node_modules/@nuintun/qrcode'  /// direct from npm??????
-import { Address } from '../node_modules/@emurgo/cardano-serialization-lib-asmjs/cardano_serialization_lib.js';
+//Temp blockimport { Encoder } from '../node_modules/@nuintun/qrcode'  /// direct from npm??????
+//DEPRECIATED: 3P site no longer needs wallet address: import { Address } from '../node_modules/@emurgo/cardano-serialization-lib-asmjs/cardano_serialization_lib.js';
 const payloadURL = "https://naptcha-web-api-that-actually-fucking.onrender.com/ops/p/"; // was "http://localhost:3000/ops/p/"
 // Is CSS working?
 //import "./3P.css"
 
 async function connectedAddress() {
+       /* Depreciated: 3P site no longer will need an address for getGatePayload
 	console.log('in connectedAddress()')
     let addyResult = "";
     const api = await window.cardano.nami.enable();
@@ -14,6 +15,8 @@ async function connectedAddress() {
     addyResult = myaddr;
     console.log("connectedAddress() addyResult: " + addyResult)
     return addyResult;
+    */
+   return true; // temp
 }
 
 async function gL() {
@@ -29,52 +32,48 @@ async function gL() {
        await connectedAddress()  // Nami API 
           .then(w_id => {
             console.log("IN: connectedAddress()")
-             wallet = w_id // just the address
+             wallet = w_id // just the address // now just static 'true'
           });
        setTimeout(() => { w_timeout-- }, 1000)
        console.log("IN: Wallet Loop, "+w_timeout+" seconds.")
     } while (wallet == "" && w_timeout)
 
-    console.log("Out of wallet dungeon, MUST have wallet: "+wallet+". Time: "+w_timeout)
-    // Need a wallet address before next line runs
-    await g_E(wallet)
-    /* Not working, status remains undefined
-    .then(status => {
-        // g_E used to be Start() but trying a different way
-        console.log("Out of gate execution. Status: "+status)
-       if(!status) {
-          drawBtn() // onclick starts auth process
-       }
-    })
-    */
+    //console.log("Out of wallet dungeon, MUST have wallet: "+wallet+". Time: "+w_timeout)
+    // Need a wallet address before next line runs // NOT NO MO'!
+    await g_E(wallet) // was await g_E(wallet)
+    
  }
 
 
  async function g_E(w_id) {
+    //was  async function g_E(w_id) but API call no longer requiring 3P site to get bech32 addy (not possible)
     console.log("In g_E()")
-    console.log("Wallet: "+w_id)
+    console.log("Has a wallet? "+w_id)  // w_id NOT USED ANYMORE, g_P and its API not checking wallets on 3P sites.
     // Gate Execute
+    /* maybe not necessary
     if(w_id == "" ) {
         console.log("Wallet loop timed out")
         drawBtn()
         return false // wallet loop timed out
      }
+     */
+
      let auth = g_A() // get an auth code from URL param
      console.log("Auth URL: "+auth)
      if(auth) {
-        await g_P(auth, w_id) // fetch API xxx
+        await g_P(auth) // was await g_P(auth, w_id)
         .then(pld => {
             console.log("Payload: ")
             console.log(pld)
             if(pld == false || typeof pld == undefined || pld[1] == "FAIL") { 
                 console.log("Payload was false.")
-                statusUI(pld)
+                statusUI(pld)  // three-point array, payload is [1]
                 drawBtn()
                 return false
             } else { 
                 console.log("Parsing payload.")
                 statusUI(["OK", "", "Parsing payload..."])
-                let status = parsePayload(pld) 
+                let status = p_P(pld) 
                 if(status == false) {
                     console.log("parsePayload returned a false.")
                     drawBtn()
@@ -131,19 +130,20 @@ function g_A() {
     }
 }
 
-async function g_P(g_auth, w_id) {
+async function g_P(g_auth) {
+    //was: async function g_P(g_auth, w_id) 
     console.log("inside getPayload.")
     // Uses an auth code to retrieve a payload
     console.log("Auth for payload API: "+g_auth)
-    console.log("Wallet for payload API: "+w_id)
-    console.log("Payload URL: "+payloadURL+g_auth+"/"+w_id)
+    console.log("Wallet for payload API: (DEPRECIATED)")
+    console.log("Payload URL: "+payloadURL+g_auth) //was: console.log("Payload URL: "+payloadURL+g_auth+"/"+w_id)
     if(g_auth == false) {
         console.log("auth was false, getPayload passing false.")
         return false;
     }
 
     let loadResults = ""
-    let result = await fetch(payloadURL+g_auth+"/"+w_id) // xxx
+    let result = await fetch(payloadURL+g_auth) //was: let result = await fetch(payloadURL+g_auth+"/"+w_id)
     console.log("Line after API fetch.")
     console.log(result)
     if(result == false || result[0] == "FAIL") {
@@ -169,7 +169,7 @@ async function g_P(g_auth, w_id) {
 }
 
 
-
+/* I guess not used
 async function fetchP(pURL) {
     console.log("In async fetchP()...URL: "+pURL)
     let payloadResp = await fetch(pURL)
@@ -178,13 +178,18 @@ async function fetchP(pURL) {
     console.log(results)
     return results;
 }
+*/
 
+/* Depreciated: 3P site no longer will need an address for getGatePayload
 function toAddr1(rawaddy) {
+    
 	const bech32Address = Address.from_hex(rawaddy).to_bech32();
 	return bech32Address;
 }
+*/
 
-function parsePayload(g_pld) {
+
+function p_P(g_pld) {
     // Will look like this: 
     // parsePayload(getPayload(getURLAuth()))
     // getPAyload: uses auth code, gets payload and parse instructions
@@ -234,6 +239,11 @@ function parsePayload(g_pld) {
     }
 }
 
+function parseRedirect(pld) {
+    window.location = `${pld}?src=${window.location}`
+    return true;
+}
+
 function parseSprout(pld) {
     // Inject a Sprout iframe embed 
     /*
@@ -247,6 +257,8 @@ function parseSproutLightbox(pld) {
 }
 
 function parseTicket(pld) {
+   /* Temporary block, cannot load qrcode module (Encoder) from a third party site (yet)
+
     // p_T
     console.log("Parsing payload as a QR...")
     console.log(pld);
@@ -258,6 +270,7 @@ function parseTicket(pld) {
 console.log(qrcode.toDataURL());
 let qr_img = qrcode.toDataURL();
 document.getElementById("p_inj").innerHTML = `<p>Gate Results</p><img width="200px" src="${qr_img}" />`
+*/
 return true;
 }
 
