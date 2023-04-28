@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
 	<title>Nessie Club</title>
@@ -48,15 +48,23 @@
   		<p>
   		This Nessie Club website serves as a testing ground for the Naptcha token gating service. Its role is to be the third-party website on which the token gate scripts will run. </p>
   		<!-- ON-PAGE-SCRIPT ////////////////////////////////////////////////-->
+		
 	<!-- ON-PAGE-SCRIPT --> 
 	<script type="module"> 
-		import "https://naptcha3p.nyc3.digitaloceanspaces.com/3P.css"; 
+	//import { Encoder } from './node_modules/@nuintun/qrcode'  //NO - need import from your own digitalocean, or direct online package URL (github?)
+//import { Address } from './node_modules/@emurgo/cardano-serialization-lib-asmjs/cardano_serialization_lib.js';  //NO - need import from your own digitalocean, or direct online package URL (github?)
+console.log("FUCK")
+	//import styles from 'https://naptcha3p.nyc3.digitaloceanspaces.com/3P.css' assert { type: "css" };
+    ///WTF does this do? document.adoptedStyleSheets = [styles];
 	</script> 
 	<div id="authbox"> 
 	<button id="ops_start" class="btn btn-outline-secondary btn-lg" style="display:none;">Start Auth</button> 
 	<div id="statusconsole"></div><div id="p_inj"></div> 
 	<script async type="module"> 
-		import libz from "https://naptcha3p.nyc3.digitaloceanspaces.com/ops.js" 
+	//import { Encoder } from './node_modules/@nuintun/qrcode'  //NO - need import from your own digitalocean, or direct online package URL (github?)
+//import { Address } from './node_modules/@emurgo/cardano-serialization-lib-asmjs/cardano_serialization_lib.js';  //NO - need import from your own digitalocean, or direct online package URL (github?)
+console.log("about to import libs")
+		import libz from "./public/ops.js" //needs to be online... https://naptcha3p.nyc3.digitaloceanspaces.com/ops.js 
 		document.getElementById("ops_start").addEventListener("click", () => { 
 			libz.connectedAddress()  
 			.then(addy => { 

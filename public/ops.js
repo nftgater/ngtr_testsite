@@ -1,9 +1,8 @@
-import { Encoder } from '../node_modules/@nuintun/qrcode'
+import { Encoder } from '../node_modules/@nuintun/qrcode'  /// direct from npm??????
 import { Address } from '../node_modules/@emurgo/cardano-serialization-lib-asmjs/cardano_serialization_lib.js';
 const payloadURL = "https://naptcha-web-api-that-actually-fucking.onrender.com/ops/p/"; // was "http://localhost:3000/ops/p/"
 // Is CSS working?
-import "../public/3P.css"
-import { LoaderTargetPlugin } from 'webpack';
+//import "./3P.css"
 
 async function connectedAddress() {
 	console.log('in connectedAddress()')

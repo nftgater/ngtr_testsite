@@ -7,7 +7,7 @@
     "test": "python3 -m http.server",
     "dev": "python3 -m http.server",
     "start": "python3 -m http.server",
-    "serve": "webpack serve", 
+    "serve": "webpack serve",
     "build": "webpack --config ./webpack.config.js; webpack serve"
   },
   "repository": {
@@ -29,5 +29,8 @@
     "qrcode": "^1.5.3",
     "webpack": "^5.81.0",
     "webpack-cli": "^5.0.2"
+  },
+  "dependencies": {
+    "@emurgo/cardano-serialization-lib-asmjs": "^11.4.0"
   }
 }
