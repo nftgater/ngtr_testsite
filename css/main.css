@@ -82,6 +82,14 @@ height: -webkit-fill-available;
 	top: 0;
 	background: rgba(11, 33, 66, 0.79);
 }
+
+.ama-header .overlay {
+	background: rgba(23, 112, 67, 0.6) !important;
+}
+
+.sc-header .overlay {
+	background: rgba(238, 89, 146, 0.6) !important;
+}
 .description{
     position: absolute;
     top: 30%;
