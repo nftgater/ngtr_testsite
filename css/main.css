@@ -57,6 +57,23 @@ html,h1,h2,h3,h4,h5,h6,a{
 	background-size: cover;
 	background-position: center;
 }
+
+.ama-header{
+	position: relative;
+	background-image: url('../images/ama-bg.jpg');
+
+	background-size: cover;
+	background-position: center;
+}
+
+.sc-header{
+	position: relative;
+	background-image: url('../images/sc-bg.jpg');
+height: -webkit-fill-available;
+	background-size: cover;
+	background-position: center;
+}
+
 .overlay{
 	position: absolute;
 	min-height: 100%;
@@ -276,6 +293,13 @@ html,h1,h2,h3,h4,h5,h6,a{
 	max-width: none;
 }
 
+.ama-header .container {
+	max-width: none;
+}
+
+.sc-header .container {
+	max-width: none;
+}
 
 .statusconsole {
 	background-color: #000;
