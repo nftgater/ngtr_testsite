@@ -157,6 +157,43 @@
 		<img src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2011/10/amathaon512.png" width="300px" /></a>
 	</div>
 </div>
+<div class="row">
+	<h1>Beta Tester Accounts</h1>
+	<p>Buy one of 100 BetaV1 tokens and get early access to the app starting June 2023</p>
+	<img src="https://studio.nmkr.io/images/buttons/paybutton_1_1.svg" onclick="javascript:openPaymentWindow()">
+
+<script type="text/javascript">
+            function openPaymentWindow() {
+                const paymentUrl = "https://pay.nmkr.io/?p=7667ca0a68cf4c64bf1ff3a065f13960&c=1";
+
+                // Specify the popup width and height
+                const popupWidth = 500;
+                const popupHeight = 700;
+
+                // Calculate the center of the screen
+                const left = window.top.outerWidth / 2 + window.top.screenX - ( popupWidth / 2);
+                const top = window.top.outerHeight / 2 + window.top.screenY - ( popupHeight / 2);
+
+                const popup =  window.open(paymentUrl, "NFT-MAKER PRO Payment Gateway",  `popup=1, location=1, width=${popupWidth}, height=${popupHeight}, left=${left}, top=${top}`);
+
+                // Show dim background
+                document.body.style = "background: rgba(0, 0, 0, 0.5)";
+
+                // Continuously check whether the popup has been closed
+                const backgroundCheck = setInterval(function () {
+                    if(popup.closed) {
+                        clearInterval(backgroundCheck);
+
+                        console.log("Popup closed");
+
+                        // Remove dim background
+                        document.body.style = "";
+                    }
+                }, 1000);
+            }
+        </script>
+
+</div>
 	
 	<footer class="footer mt-auto py-3" style="background:#052c4d;">
 	<div class="container">
