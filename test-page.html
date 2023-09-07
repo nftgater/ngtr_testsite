@@ -1,7 +1,7 @@
 
 <html lang="en">
 <head>
-	<title>Nessie Club</title>
+	<title>J2 Test</title>
 	 <!-- add bootstrap css file -->
 
       <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
@@ -65,7 +65,7 @@
 	import libz from "https://naptcha3p.nyc3.digitaloceanspaces.com/ops-j2.js"
 	document.getElementById("ops_start").addEventListener("click", () => {  
 		let callback = window.location;
-		window.location = "https://janus-gate.netlify.app/OPS.html?callback="+callback;
+		window.location = "https://janus-j2.netlify.app/OPS.html?callback="+callback;
 	}) 
 	let auth = libz.g_A()
 	if(auth) { 
