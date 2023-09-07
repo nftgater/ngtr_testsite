@@ -53,9 +53,34 @@
   		Token Gate Test Site</h1>
   		<p>
   		This Nessie Club website serves as a testing ground for the Naptcha token gating service. Its role is to be the third-party website on which the token gate scripts will run. </p>
-  		<!-- ON-PAGE-SCRIPT ////////////////////////////////////////////////-->
+  		
+		<!-- ON-PAGE-SCRIPT --> 
+ <script type="module"> 
+	import "https://naptcha3p.nyc3.digitaloceanspaces.com/3P-j2.css"; 
+</script> 
+<div id="authbox"> 
+<button id="ops_start" style="display:none;">Connect</button> 
+<div id="statusconsole">Initializing...</div><div id="p_inj"></div> 
+<script async type="module"> 
+	import libz from "https://naptcha3p.nyc3.digitaloceanspaces.com/ops-j2.js"
+	document.getElementById("ops_start").addEventListener("click", () => {  
+		let callback = window.location;
+		window.location = "https://janus-gate.netlify.app/OPS.html?callback="+callback;
+	}) 
+	let auth = libz.g_A()
+	if(auth) { 
+		document.getElementById("statusconsole").innerHTML = "&#9989; Loading gate payload..."
+		libz.g_E(auth); 
+	} else { 
+		libz.drawBtn(); 
+		document.getElementById("statusconsole").innerHTML = "&#9889; Connect wallet to begin." 
+	} 
+</script> 
+</div> 
+<!-- END OF OPS SCRIPT --> 
+
 		
-	<!-- ON-PAGE-SCRIPT --> 
+	<!-- OLD -PAGE-SCRIPT 
 	<script type="module"> 
 	//import { Encoder } from './node_modules/@nuintun/qrcode'  //NO - need import from your own digitalocean, or direct online package URL (github?)
 //import { Address } from './node_modules/@emurgo/cardano-serialization-lib-asmjs/cardano_serialization_lib.js';  //NO - need import from your own digitalocean, or direct online package URL (github?)
@@ -85,12 +110,9 @@ console.log("about to import libs")
 		} 
 	</script> 
 	</div> 
-	<!-- END OF OPS SCRIPT --> 
-	
+	 END OF OLD OPS SCRIPT --> 
 
-
-
-  	</h1>
+  	
   </div>
    </div>
   
