@@ -32,7 +32,7 @@
 		  HOME</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" data-value="Test Page" href="/test-page.html">Nessie Club</a>
+			<a class="nav-link" data-value="Test Page" href="/test-page.html">Jesus 2 Tester</a>
 		  </li>
 
 		<li class="nav-item">
@@ -49,29 +49,28 @@
   	<h1>
   		Token Gate Test Site</h1>
   		<p>
-  		This Nessie Club website serves as a testing ground for the GATR token gating service. Its role is to be the third-party website on which the token gate scripts will run. </p>
+  		This website serves as a testing ground for the GATR token gating service. Its role is to be the third-party website on which the token gate scripts will run. </p>
   		
 		<!-- ON-PAGE-SCRIPT --> 
-
- <div id="authbox"> 
- <button id="ops_start" style="display:none;">Connect</button> 
- <div id="statusconsole">Initializing...</div><div id="p_inj"></div> 
- <script async type="module"> 
- 	import libz from "https://naptcha3p.nyc3.digitaloceanspaces.com/ops-j2.js"
- 	document.getElementById("ops_start").addEventListener("click", () => {  
- 		let callback = window.location;
- 		window.location = "https://janus-j2.netlify.app/OPS.html?callback="+callback;
- 	}) 
- 	let auth = libz.g_A()
- 	if(auth) { 
- 		document.getElementById("statusconsole").innerHTML = "&#9989; Loading gate payload..."
- 		libz.g_E(auth); 
- 	} else { 
- 		libz.drawBtn(); 
- 		document.getElementById("statusconsole").innerHTML = "&#9889; Connect wallet to begin." 
- 	} 
- </script> 
- </div> 
+		<div id="authbox"> 
+		<button id="ops_start" style="display:none;">Connect</button> 
+		<div id="statusconsole">Initializing...</div><div id="p_inj"></div> 
+		<script async type="module"> 
+			import libz from "https://naptcha3p.nyc3.digitaloceanspaces.com/ops-j2.js"
+			document.getElementById("ops_start").addEventListener("click", () => {  
+				let callback = window.location;
+				window.location = "https://janus-j2.netlify.app/OPS.html?callback="+callback;
+			}) 
+			let auth = libz.g_A()
+			if(auth) { 
+				document.getElementById("statusconsole").innerHTML = "&#9989; Loading gate payload..."
+				libz.g_E(auth); 
+			} else { 
+				libz.drawBtn(); 
+				document.getElementById("statusconsole").innerHTML = "&#9889; Connect wallet to begin." 
+			} 
+		</script> 
+		</div> 
  
 
   	
