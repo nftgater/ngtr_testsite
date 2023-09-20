@@ -56,7 +56,7 @@ html,h1,h2,h3,h4,h5,h6,a{
 
 	background-size: cover;
 	background-position: center;
-	filter: blur(2px);
+	
 }
 
 .ama-header{
@@ -82,6 +82,11 @@ height: -webkit-fill-available;
 	left: 0;
 	top: 0;
 	background: rgba(11, 33, 66, 0.79);
+	filter: blur(2px);
+	background-image: url('../images/j2bg3.jpg');
+
+	background-size: cover;
+	background-position: center;
 }
 
 .ama-header .overlay {
