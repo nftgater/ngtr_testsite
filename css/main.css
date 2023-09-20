@@ -81,7 +81,7 @@ height: -webkit-fill-available;
 	min-width: 100%;
 	left: 0;
 	top: 0;
-	background: rgba(94, 19, 109, 0.59);
+	background: rgba(238, 89, 146, 0.6) !important;
 	filter: blur(2px);
 	background-image: url('../images/j2bg3.jpg');
 
@@ -101,9 +101,16 @@ height: -webkit-fill-available;
     top: 30%;
 	width: 100%;
     margin: auto;
-    padding: 2em 15vw;
+    padding: 2em 22vw;
 	text-align: center;
 }
+
+.centerbox {
+	background: rgba(238, 89, 146, 0.6) !important;
+	margin: auto;
+}
+
+
 .description h1{
 	color:#4ff900 ;
 }
