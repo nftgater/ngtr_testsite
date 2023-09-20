@@ -52,10 +52,11 @@ html,h1,h2,h3,h4,h5,h6,a{
 /*header style*/
 .header{
 	position: relative;
-	background-image: url('../images/j2bg.jpg');
+	background-image: url('../images/j2bg3.jpg');
 
 	background-size: cover;
 	background-position: center;
+	filter: blur(2px);
 }
 
 .ama-header{
