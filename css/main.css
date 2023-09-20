@@ -23,7 +23,7 @@ html,h1,h2,h3,h4,h5,h6,a{
 ::-webkit-scrollbar{width : 15px;  }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: red;
+	background-color: transparent;
   border-radius: 10px;
 }
 
@@ -106,13 +106,18 @@ height: -webkit-fill-available;
 }
 
 .centerbox {
-	background: rgba(238, 89, 146, 0.6) !important;
+	background: rgb(76 17 91 / 70%) !important;
+	padding: 2em;
+	border-radius: 5px;
 	margin: auto;
+	-webkit-box-shadow: 17px 20px 13px 1px rgba(0,0,0,0.58);
+	-moz-box-shadow: 17px 20px 13px 1px rgba(0,0,0,0.58);
+	box-shadow: 17px 20px 13px 1px rgba(0,0,0,0.58);
 }
 
 
 .description h1{
-	color:#4ff900 ;
+	color:#fff ;
 }
 .description p{
 	color:#fff;
