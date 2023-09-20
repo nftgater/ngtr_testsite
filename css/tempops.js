@@ -78,7 +78,7 @@ async function gL() {
                     console.log("parsePayload returned a false.")
                     drawBtn()
                 } else {
-                    statusUI(["Gate tech brought to you by", "", " <a href='https://naptcha.netlify.app' />Naptcha</a>"])
+                    statusUI(["Gate tech brought to you by", "", " <a href='https://naptcha.netlify.app' />GATR</a>"])
                 }
                 return status
             }

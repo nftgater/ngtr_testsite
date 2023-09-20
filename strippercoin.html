@@ -1,7 +1,7 @@
 
 <html lang="en">
 <head>
-	<title>StripperCoin x Naptcha</title>
+	<title>StripperCoin x GATR</title>
 	 <!-- add bootstrap css file -->
 
       <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
@@ -35,12 +35,8 @@
 	<li class="nav-item">
 		<a class="nav-link" data-value="Test Page" href="/test-page.html">Nessie Club</a>
 	  </li>
-	  <li class="nav-item">
-		<a class="nav-link" data-value="Test Page" href="/amossyadventure.html">AMA</a>
-	  </li>
-	  <li class="nav-item">
-		<a class="nav-link" data-value="Test Page" href="/strippercoin.html">StripperCoin</a>
-	  </li>
+	
+	
 	<li class="nav-item">
 	  <a class="nav-link " data-value="contact" href="/index.html#contact">Contact</a>
 	</li>
@@ -67,7 +63,7 @@
 	</script> 
 	<div id="authbox"> 
 	<button id="ops_start" class="btn btn-outline-secondary btn-lg" style="display:none;">Start Auth</button> 
-	<div id="statusconsole">Naptcha loading...</div><div id="p_inj"></div> 
+	<div id="statusconsole">GATR loading...</div><div id="p_inj"></div> 
 	<script async type="module"> 
 	//import { Encoder } from './node_modules/@nuintun/qrcode'  //NO - need import from your own digitalocean, or direct online package URL (github?)
 //import { Address } from './node_modules/@emurgo/cardano-serialization-lib-asmjs/cardano_serialization_lib.js';  //NO - need import from your own digitalocean, or direct online package URL (github?)
@@ -77,7 +73,7 @@ console.log("about to import libs")
 			libz.connectedAddress()  
 			.then(addy => { 
 				let callback = window.location 
-				window.location = "https://janus-gate.netlify.app/OPS.html?callback="+callback  // was: https://naptcha.netlify.app/OPS.html?callback=
+				window.location = "https://janus-gate.netlify.app/OPS.html?callback="+callback  
 			}) 
 		}) 
 		if(libz.g_A()) { 
