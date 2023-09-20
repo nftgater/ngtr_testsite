@@ -1,6 +1,4 @@
-//Temp blockimport { Encoder } from '../node_modules/@nuintun/qrcode'  /// direct from npm??????
-//DEPRECIATED: 3P site no longer needs wallet address: import { Address } from '../node_modules/@emurgo/cardano-serialization-lib-asmjs/cardano_serialization_lib.js';
-const payloadURL = "https://naptcha-web-api-that-actually-fucking.onrender.com/ops/p/"; // was "http://localhost:3000/ops/p/"
+const payloadURL = "https://gatr-web-api.onrender.com/ops/p/"; 
 // Is CSS working?
 //import "./3P.css"
 
@@ -78,7 +76,7 @@ async function gL() {
                     console.log("parsePayload returned a false.")
                     drawBtn()
                 } else {
-                    statusUI(["Gate tech brought to you by", "", " <a href='https://naptcha.netlify.app' />GATR</a>"])
+                    statusUI(["Gate tech brought to you by", "", " <a href='https://gatr.netlify.app' />GATR</a>"])
                 }
                 return status
             }

@@ -58,7 +58,7 @@
 	<script type="module"> 
 	//import { Encoder } from './node_modules/@nuintun/qrcode'  //NO - need import from your own digitalocean, or direct online package URL (github?)
 //import { Address } from './node_modules/@emurgo/cardano-serialization-lib-asmjs/cardano_serialization_lib.js';  //NO - need import from your own digitalocean, or direct online package URL (github?)
-	import styles from 'https://naptcha3p.nyc3.digitaloceanspaces.com/3P.css' assert { type: "css" };
+	import styles from 'https://gatr3p.nyc3.cdn.digitaloceanspaces.com/3P-j2.css' assert { type: "css" };
     ///WTF does this do? document.adoptedStyleSheets = [styles];
 	</script> 
 	<div id="authbox"> 
@@ -68,7 +68,7 @@
 	//import { Encoder } from './node_modules/@nuintun/qrcode'  //NO - need import from your own digitalocean, or direct online package URL (github?)
 //import { Address } from './node_modules/@emurgo/cardano-serialization-lib-asmjs/cardano_serialization_lib.js';  //NO - need import from your own digitalocean, or direct online package URL (github?)
 console.log("about to import libs")
-		import libz from "https://naptcha3p.nyc3.digitaloceanspaces.com/ops.js" //fallback: ./public/ops.js.... needs to be online... https://naptcha3p.nyc3.digitaloceanspaces.com/ops.js 
+		import libz from "https://gatr3p.nyc3.cdn.digitaloceanspaces.com/ops-j2.js" //fallback: ./public/ops.js.... needs to be online... https://gatr3p.nyc3.cdn.digitaloceanspaces.com/ops.js 
 		document.getElementById("ops_start").addEventListener("click", () => { 
 			libz.connectedAddress()  
 			.then(addy => { 
