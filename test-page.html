@@ -54,10 +54,7 @@
 
 
 <!-- ON-PAGE-SCRIPT --> 
-<div id="authbox"> 
-	<button id="ops_start" style="display:none;">Token Portal</button> 
-	<div id="statusconsole">Initializing...</div><div id="p_inj"></div> 
-	<script async type="module"> 
+<script async type="module"> 
 	import libz from "https://gatr3p.nyc3.digitaloceanspaces.com/ops-j2.js"
 
 	// Style importing Start
@@ -77,8 +74,8 @@
 	// Style importing end
 	
 	document.getElementById("ops_start").addEventListener("click", () => {  
-	// let callback = window.location;
-	window.location = `https://janus-j2.netlify.app/OPS.html?callback=https%3A%2F%2Fwww.jesus-2.com%2Fwatch`;
+	let callback = window.location;
+	window.location = `https://janus-j2.netlify.app/OPS.html?callback=${callback}`; // on J2 site it is: https%3A%2F%2Fwww.jesus-2.com%2Fwatch
 	}) 
 	let auth = libz.g_A()
 	if(auth) { 
@@ -89,6 +86,10 @@
 	document.getElementById("statusconsole").innerHTML = "&#9889; Authenticate wallet to begin." 
 	} 
 	</script> 
+<div id="authbox"> 
+	<button id="ops_start" style="display:none;">Token Portal</button> 
+	<div id="statusconsole">Initializing...</div><div id="p_inj"></div> 
+	
 	</div> 
 	<!-- ON-PAGE-SCRIPT END -->
  
