@@ -4,11 +4,9 @@
   "description": "Third party test site for the OPS",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"No test specified\" && exit 0",
-    "dev": "webpack serve --config ./webpack.dev.config.js",
-    "start": "node server.js",
-    "serve": "webpack serve --config ./webpack.dev.config.js",
-    "build": "webpack --config ./webpack.config.js"
+    "start": "python3 -m http.server",
+    "serve": "webpack serve",
+    "build": "webpack --config ./webpack.config.js; webpack serve"
   },
   "repository": {
     "type": "git",
