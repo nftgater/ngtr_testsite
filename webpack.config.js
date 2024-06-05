@@ -1,12 +1,12 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('./node_modules/html-webpack-plugin');
-const webpack = require('./node_modules/webpack'); //to access built-in plugins
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './index.html',
   output: {
-    filename: 'index.html',
-    path: path.resolve(__dirname, 'dist')
+    filename: 'main.js', // Change output filename to main.js or bundle.js
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   devServer: {
     static: path.resolve(__dirname, 'dist'),
@@ -32,14 +32,5 @@ module.exports = {
       template: './index.html'
     }),
   ],
-  entry: {
-    main: './index.html'
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
-    filename: 'main.js'
-  },
   mode: "production"
-}
-
+};

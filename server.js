@@ -1,4 +1,5 @@
-// This shit is brand new.
+// This shit is brand new. this file might not stay.
+
 const express = require('express');
 const path = require('path');
 const app = express();
@@ -14,5 +15,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`made up Server is running on port ${PORT}`);
 });
