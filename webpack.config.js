@@ -32,7 +32,8 @@ module.exports = {
       "querystring": require.resolve("querystring-es3"), 
       "http": require.resolve("stream-http"), 
       "fs": false,
-      "async_hooks": false
+      "async_hooks": false, 
+      "browser": false
     }
   },  
   module: {
