@@ -44,20 +44,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.html$/,
-        loader: 'html-loader',
+        test: /\.css$/, // Match CSS files
+        use: ['style-loader', 'css-loader'], // Use style-loader and css-loader
       },
       {
-        test: /\.css$/,
-        use: [
-          'style-loader', 'css-loader' // Ensure both style-loader and css-loader are used
-        ]
+        test: /\.html$/,
+        loader: 'html-loader',
       }
     ]
   },
   plugins: [
     // Generate HtmlWebpackPlugin instances dynamically for each HTML file in the src folder
-    ...generateHtmlPlugins(),
+    ...generateHtmlPlugins()
   ],
   mode: 'production'
 };
