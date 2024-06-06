@@ -1,6 +1,14 @@
 import '../css/main.css';
 import '../css/bootstrap.min.css';
 
+// src/js/index.js
+
+function importAll(r) {
+	r.keys().forEach(r);
+  }
+  
+  importAll(require.context('../images', false, /\.(png|jpe?g|svg)$/));
+
 $(document).ready(function(){
  $('.header').height($(window).height());
 

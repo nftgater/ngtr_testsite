@@ -17,10 +17,10 @@ function generateHtmlPlugins() {
 module.exports = {
   entry: {
     main: './src/js/main.js', 
-    styles: './src/css/main.css'
+    styles: './src/css/index.js'
   }, // Entry point is main.js in src/js directory
   output: {
-      filename: 'bundle.js',
+      filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
