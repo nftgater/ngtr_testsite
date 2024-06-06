@@ -15,10 +15,10 @@ function generateHtmlPlugins() {
 }
 
 module.exports = {
-  entry: './server.js', // Entry point is server.js
+  entry: './src/js/main.js', // Entry point is main.js in src/js directory
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+      filename: 'bundle.js',
+      path: path.resolve(__dirname, 'dist'),
   },
   target: 'node', // Set the target to 'node' if you're bundling server-side code
   devServer: {
@@ -46,10 +46,6 @@ module.exports = {
       {
         test: /\.css$/, // Match CSS files
         use: ['style-loader', 'css-loader'], // Use style-loader and css-loader
-      },
-      {
-        test: /\.html$/,
-        loader: 'html-loader',
       }
     ]
   },

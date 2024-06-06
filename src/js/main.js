@@ -1,3 +1,6 @@
+import '../css/main.css';
+import '../css/bootstrap.min.css';
+
 $(document).ready(function(){
  $('.header').height($(window).height());
 
