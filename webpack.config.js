@@ -33,7 +33,8 @@ module.exports = {
       "http": require.resolve("stream-http"), 
       "fs": false,
       "async_hooks": false, 
-      "browser": false
+      "browser": false, 
+      "net": false
     }
   },  
   module: {
