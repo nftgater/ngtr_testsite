@@ -27,7 +27,8 @@ module.exports = {
       "zlib": require.resolve('browserify-zlib'),
       "crypto": require.resolve("crypto-browserify"), 
       "buffer": false, // was: require.resolve("buffer"), 
-      "vm": require.resolve("vm-browserify")
+      "vm": require.resolve("vm-browserify"), 
+      "stream": require.resolve("stream-browserify")
     }
   },  
   module: {
