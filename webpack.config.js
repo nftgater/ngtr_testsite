@@ -25,7 +25,9 @@ module.exports = {
   resolve: {
     fallback: {
       "zlib": require.resolve('browserify-zlib'),
-      "crypto": require.resolve("crypto-browserify")
+      "crypto": require.resolve("crypto-browserify"), 
+      "buffer": require.resolve("buffer/"), 
+      "vm": require.resolve("vm-browserify")
     }
   },  
   module: {
