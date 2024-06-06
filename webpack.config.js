@@ -2,21 +2,25 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const fs = require('fs');
 
-// Read all HTML files from the src directory
-const htmlFiles = fs.readdirSync(path.resolve(__dirname, 'src'))
-  .filter(file => file.endsWith('.html'))
-  .map(file => new HtmlWebpackPlugin({
-    template: `./src/${file}`,
-    filename: file
-  }));
+// Function to generate HtmlWebpackPlugin instances for each HTML file in the src folder
+function generateHtmlPlugins() {
+  const htmlFiles = fs.readdirSync(path.resolve(__dirname, 'src')).filter(file => file.endsWith('.html'));
+
+  return htmlFiles.map(file => {
+    return new HtmlWebpackPlugin({
+      template: `./src/${file}`,
+      filename: file,
+    });
+  });
+}
 
 module.exports = {
-  entry: './server.js', // Your main JavaScript entry point
+  entry: './server.js', // Entry point is server.js
   output: {
-    filename: 'bundle.js', // Output bundled JavaScript file
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
   },
+  target: 'node', // Set the target to 'node' if you're bundling server-side code
   devServer: {
     static: path.resolve(__dirname, 'dist'),
     port: 8080,
@@ -52,7 +56,8 @@ module.exports = {
     ]
   },
   plugins: [
-    ...htmlFiles // Spread the array of HtmlWebpackPlugin instances
+    // Generate HtmlWebpackPlugin instances dynamically for each HTML file in the src folder
+    ...generateHtmlPlugins(),
   ],
   mode: 'production'
 };
