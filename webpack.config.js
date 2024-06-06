@@ -22,6 +22,11 @@ module.exports = {
     port: 8080,
     hot: true
   },
+  resolve: {
+    fallback: {
+      zlib: require.resolve('browserify-zlib')
+    }
+  },  
   module: {
     rules: [
       {
