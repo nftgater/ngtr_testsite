@@ -30,6 +30,9 @@
     "webpack-dev-server": "^5.0.4"
   },
   "dependencies": {
-    "@emurgo/cardano-serialization-lib-asmjs": "^11.4.0"
+    "@emurgo/cardano-serialization-lib-asmjs": "^11.4.0",
+    "browserify-zlib": "^0.2.0",
+    "crypto-browserify": "^3.12.0",
+    "stream-browserify": "^3.0.0"
   }
 }
