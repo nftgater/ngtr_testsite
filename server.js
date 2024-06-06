@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Fallback to index.html for single-page applications
-app.get('*', (req, res) => {
+app.get('./src/*', (req, res) => {
   const filePath = path.join(__dirname, 'dist', req.path);
   if (fs.existsSync(filePath)) {
     res.sendFile(filePath);
