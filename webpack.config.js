@@ -30,7 +30,8 @@ module.exports = {
       "vm": require.resolve("vm-browserify"), 
       "stream": require.resolve("stream-browserify"), 
       "querystring": require.resolve("querystring-es3"), 
-      "http": require.resolve("stream-http")
+      "http": require.resolve("stream-http"), 
+      "fs": false
     }
   },  
   module: {
