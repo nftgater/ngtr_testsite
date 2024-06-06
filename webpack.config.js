@@ -31,7 +31,8 @@ module.exports = {
       "stream": require.resolve("stream-browserify"), 
       "querystring": require.resolve("querystring-es3"), 
       "http": require.resolve("stream-http"), 
-      "fs": false
+      "fs": false,
+      "async_hooks": false
     }
   },  
   module: {
