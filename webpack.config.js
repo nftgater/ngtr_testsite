@@ -15,7 +15,10 @@ function generateHtmlPlugins() {
 }
 
 module.exports = {
-  entry: './src/js/main.js', // Entry point is main.js in src/js directory
+  entry: {
+    main: './src/js/main.js', 
+    styles: './src/css/main.css'
+  }, // Entry point is main.js in src/js directory
   output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, 'dist'),
@@ -45,6 +48,10 @@ module.exports = {
       {
         test: /\.css$/, // Match CSS files
         use: ['style-loader', 'css-loader'], // Use style-loader and css-loader
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader'],
       }
     ]
   },
