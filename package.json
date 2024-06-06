@@ -6,7 +6,7 @@
   "scripts": {
     "start": "python3 -m http.server",
     "serve": "webpack serve",
-    "build": "webpack --config ./webpack.config.js; webpack serve"
+    "build": "webpack --config ./webpack.config.js"
   },
   "repository": {
     "type": "git",

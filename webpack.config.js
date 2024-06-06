@@ -1,10 +1,19 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const fs = require('fs');
+
+// Read all HTML files from the src directory
+const htmlFiles = fs.readdirSync(path.resolve(__dirname, 'src'))
+  .filter(file => file.endsWith('.html'))
+  .map(file => new HtmlWebpackPlugin({
+    template: `./src/${file}`,
+    filename: file
+  }));
 
 module.exports = {
-  entry: './index.html',
+  entry: './src/index.js', // Your main JavaScript entry point
   output: {
-    filename: 'main.js', // Change output filename to main.js or bundle.js
+    filename: 'bundle.js', // Output bundled JavaScript file
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
   },
@@ -17,20 +26,18 @@ module.exports = {
     rules: [
       {
         test: /\.html$/,
-        loader: "html-loader",
+        loader: 'html-loader',
       },
       {
         test: /\.css$/,
         use: [
-          'css-loader'
+          'style-loader', 'css-loader' // Ensure both style-loader and css-loader are used
         ]
       }
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './index.html'
-    }),
+    ...htmlFiles // Spread the array of HtmlWebpackPlugin instances
   ],
-  mode: "production"
+  mode: 'production'
 };
