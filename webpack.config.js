@@ -11,7 +11,7 @@ const htmlFiles = fs.readdirSync(path.resolve(__dirname, 'src'))
   }));
 
 module.exports = {
-  entry: './src/server.js', // Your main JavaScript entry point
+  entry: './server.js', // Your main JavaScript entry point
   output: {
     filename: 'bundle.js', // Output bundled JavaScript file
     path: path.resolve(__dirname, 'dist'),
