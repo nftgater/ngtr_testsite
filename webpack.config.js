@@ -51,7 +51,15 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader'],
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+            context: 'src',  // Keeps the original folder structure
+            outputPath: 'assets/',  // Outputs images to dist/assets/
+            publicPath: 'assets/'  // Ensures images are served from the correct path
+          }
+        }
       }
     ]
   },
