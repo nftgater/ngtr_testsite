@@ -16,7 +16,7 @@ function generateHtmlPlugins() {
 
 module.exports = {
   entry: {
-    main: './src/js/main.js', 
+    main: './src/js/index.js', 
     styles: './src/css/index.js'
   }, // Entry point is main.js in src/js directory
   output: {
