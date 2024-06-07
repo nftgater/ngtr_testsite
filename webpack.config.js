@@ -56,8 +56,8 @@ module.exports = {
           options: {
             name: '[path][name].[ext]',
             context: 'src',  // Keeps the original folder structure
-            outputPath: 'assets/',  // Outputs images to dist/assets/
-            publicPath: 'assets/'  // Ensures images are served from the correct path
+            outputPath: '/',  // Outputs images to dist/assets/ // was: assets/
+            publicPath: '/'  // Ensures images are served from the correct path
           }
         }
       }
