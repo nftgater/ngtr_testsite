@@ -8,7 +8,7 @@ function importAll(r) {
 	r.keys().forEach(r);
 }
 
-importAll(require.context('../images', false, /\.(png|jpe?g|svg)$/));
+importAll(require.context('../images', false, /\.(png|jpe?g|svg|gif)$/));
   
 
 $(document).ready(function(){
