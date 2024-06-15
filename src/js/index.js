@@ -10,7 +10,7 @@ function importAll(r) {
 
 importAll(require.context('../images', false, /\.(png|jpe?g|svg|gif)$/));
   
-
+/* bookmark: testing for depreciation, the "$" causes an error.
 $(document).ready(function(){
  $('.header').height($(window).height());
 
@@ -22,3 +22,4 @@ $(document).ready(function(){
  })
 
 })
+*/
