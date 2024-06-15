@@ -30,7 +30,7 @@
 		  HOME</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" data-value="Test Page" href="/test-page.html">Jesus 2 Tester</a>
+			<a class="nav-link" data-value="Test Page" href="/test-page.html">Gate Tester</a>
 		  </li>
 
 		<li class="nav-item">
@@ -47,44 +47,50 @@
 		<div class="centerbox">
   	<h1>GATR Test Page</h1>
   		<p>
-  		This website serves as a testing ground for the GATR token gating service. Its role is to be the third-party website on which the token gate scripts will run. </p>
+  		This website serves as a testing ground for the GATR token gating service. Imagine this page is your website, where your GATR copy/paste script lives. </p>
   		<!-- BOOKMARK: Implement OPSv2.JS, overwrite this script when done (being edited in the API SDK arbitrarily)-->
 
 
 <!-- ON-PAGE-SCRIPT --> 
-<script async type="module"> 
-	import libz from "https://gatr3p.nyc3.digitaloceanspaces.com/ops-j2.js"
+<script async type="module">  // NOTE: This OPS script modified for Vue3
+	import libz from "https://ngtr.nyc3.digitaloceanspaces.com/opsv2.js"
+	try {
 
-	// Style importing Start
-	var cssId = 'myCss';  // you could encode the css path itself to generate id..
-	console.log("DEBUG: testing CSS injection mid-script for OPS")
-	if (!document.getElementById(cssId))
-	{
-		var head  = document.getElementsByTagName('head')[0];
-		var link  = document.createElement('link');
-		link.id   = cssId;
-		link.rel  = 'stylesheet';
-		link.type = 'text/css';
-		link.href = 'https://gatr3p.nyc3.digitaloceanspaces.com/3P-j2.css';
-		link.media = 'all';
-		head.appendChild(link);
+		// Style importing Start
+		var cssId = 'myCss';  // you could encode the css path itself to generate id..
+		console.log("DEBUG: testing CSS injection mid-script for OPS")
+		if (!document.getElementById(cssId))
+		{
+			var head  = document.getElementsByTagName('head')[0];
+			var link  = document.createElement('link');
+			link.id   = cssId;
+			link.rel  = 'stylesheet';
+			link.type = 'text/css';
+			link.href = 'https://ngtr.nyc3.digitaloceanspaces.com/3P.css';
+			link.media = 'all';
+			head.appendChild(link);
+		}
+		// Style importing end
+
+		document.getElementById("ops_start").addEventListener("click", () => {  
+		let callback = window.location;
+		window.location = `https://janus-auth.vercel.app/OPS.html?callback=${callback}`; // on J2 site it is: https%3A%2F%2Fwww.jesus-2.com%2Fwatch
+		}) 
+		let auth = libz.g_A()
+		if(auth) { 
+		document.getElementById("statusconsole").innerHTML = "&#9989; Loading gate payload..."
+		libz.g_E(auth); 
+		} else { 
+		libz.drawBtn(); 
+		document.getElementById("statusconsole").innerHTML = "&#9889; Authenticate wallet to begin." 
+		} 
+	}catch(err) {
+		console.log("caught in ops:")
+		console.log(err)
 	}
-	// Style importing end
 	
-	document.getElementById("ops_start").addEventListener("click", () => {  
-	let callback = window.location;
-	window.location = `https://janus-j2.netlify.app/OPS.html?callback=${callback}`; // on J2 site it is: https%3A%2F%2Fwww.jesus-2.com%2Fwatch
-	}) 
-	let auth = libz.g_A()
-	if(auth) { 
-	document.getElementById("statusconsole").innerHTML = "&#9989; Loading gate payload..."
-	libz.g_E(auth); 
-	} else { 
-	libz.drawBtn(); 
-	document.getElementById("statusconsole").innerHTML = "&#9889; Authenticate wallet to begin." 
-	} 
 	</script> 
-<div id="authbox"> 
+	<div id="authbox"> 
 	<button id="ops_start" style="display:none;">Token Portal</button> 
 	<div id="statusconsole">Initializing...</div><div id="p_inj"></div> 
 	
@@ -99,7 +105,7 @@
   
 </header>
 
-<footer class="footer mt-auto py-3" style="background:#052c4d;">
+<footer class="footer mt-auto py-3" style="background:#052c4d;position:absolute;bottom:0px;width:100%;">
 	<div class="container">
 		<p class="text-center text-white lead">Copyright &copy; <script type="text/javascript">
 			document.write(new Date().getFullYear());
