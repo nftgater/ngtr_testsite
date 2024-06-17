@@ -13,6 +13,7 @@ const payloadURL = "https://ngtr-api.onrender.com/ops/p/";
             console.log(pld)
             if(pld[0] !== "OK") { // was: pld[1]
                 console.log(`${pld[2]}`)
+                document.getElementById('statusconsole').innerHTML = pld[2]
                 drawBtn()
                 return false
             } else { 
