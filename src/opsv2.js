@@ -161,14 +161,18 @@ async function g_P(g_auth) {
 
     let loadResults = ""
     let result = await fetch(fURL) //was: let result = await fetch(payloadURL+g_auth+"/"+w_id)
-    console.log("Line after API fetch.")
-    console.log(result)
-    if(result[0] !== "OK") {
-        console.log("Payload API failed.. "+result[2])
-        return result;
+  
+    loadResults = await result.json()
+    console.log("debug: loadResults:")
+    console.log(loadResults)
+    /*
+    if(wresult[0] !== "OK") {
+        console.log("Payload API failed.. "+wresult[2])
+        return wresult;
     } else {
         loadResults = await result.json()
     }
+    */
 
     let p_timeout = 15
     do {
@@ -194,52 +198,52 @@ function p_P(g_pld) {
     console.log(g_pld)
     if(g_pld[0] != "OK") {
         console.log("Payload was false.")
-        statusUI(g_pld)
+        statusUI(g_pld[2])
         return false;
     } else {
         let pld = g_pld[1].gatekey_payload
-    let rtn = g_pld[1].gatekey_returnformat
-    switch(rtn) {
-        case "V_VIMEO_R1_H":
-            parseVimeoR1_hidden(pld)
+        let rtn = g_pld[1].gatekey_returnformat
+        switch(rtn) {
+            case "V_VIMEO_R1_H":
+                parseVimeoR1_hidden(pld)
+                break;
+            case "V_VIMEO_F1_H":
+                parseVimeoF1_hidden(pld)
+                break;
+            case "V_VIMEO_R1_P":
+                parseVimeoR1_private(pld)
+                break;
+            case "R_STRING":
+                parseString(pld);
+                break;
+            case "P_TICKET":
+                parseTicket(pld);
+                return true;
+            case "P_HTML":
+                parseHTML(pld);
+                break;
+            case "P_SCRIPT":
+                parseScript(pld);
+                break;
+            case "P_REDIRECT":
+                parseRedirect(pld);
+                break;
+            case "S_YOUTUBE":
+                parseYT(pld);
+                break;
+            case "P_PASSTHROUGH":
+                return pld;
+            case "S_SPROUT":
+                parseSprout(pld)
+                return true;
+            case "S_SPROUTL":
+                parseSproutLightbox(pld)
+                break;
+            case "S_SPROUTP":
+                parseSproutPlaylist(pld)
+            default: 
             break;
-        case "V_VIMEO_F1_H":
-            parseVimeoF1_hidden(pld)
-            break;
-        case "V_VIMEO_R1_P":
-            parseVimeoR1_private(pld)
-            break;
-        case "R_STRING":
-            parseString(pld);
-            break;
-        case "P_TICKET":
-            parseTicket(pld);
-            return true;
-        case "P_HTML":
-            parseHTML(pld);
-            break;
-        case "P_SCRIPT":
-            parseScript(pld);
-            break;
-        case "P_REDIRECT":
-            parseRedirect(pld);
-            break;
-        case "S_YOUTUBE":
-            parseYT(pld);
-            break;
-        case "P_PASSTHROUGH":
-            return pld;
-        case "S_SPROUT":
-            parseSprout(pld)
-            return true;
-        case "S_SPROUTL":
-            parseSproutLightbox(pld)
-            break;
-        case "S_SPROUTP":
-            parseSproutPlaylist(pld)
-        default: 
-        break;
-    }
+        }
 
     return true;
     }
