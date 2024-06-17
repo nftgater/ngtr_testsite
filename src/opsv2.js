@@ -70,6 +70,8 @@ function g_A() {  ///////// Note: returns false or [localAuth, gateID | "0"]
 	const gateAuth = params.get('auth');
     let gateID = params.get('gid') // optional URL param, allows pages to specify a gate for an authcode belonging to a collection.
     console.log("Auth code: "+gateAuth)
+    console.log("debug: any gateID param?")
+    console.log(gateID)
     if(!gateAuth){
         // bookmark: no authcode in params, now check in cookies.
         let localAuth = getLocalItem("dp_auth")
@@ -78,7 +80,7 @@ function g_A() {  ///////// Note: returns false or [localAuth, gateID | "0"]
             return false;
         } else {
             console.log("Rebrowse - authcode in cookie but not in URL.")
-            if(typeof gateID == "undefined") {
+            if(typeof gateID == "undefined" || gateID === null) {
                 return [localAuth, "0"] // normal operation
             } else {
                 console.log(`Requesting a collection authentication and specifying gate: ${gateID}`)
@@ -94,7 +96,7 @@ function g_A() {  ///////// Note: returns false or [localAuth, gateID | "0"]
             console.log("Storing URL found auth locally.")
         }
         storeDPCookie(gateAuth)
-        if(typeof gateID == "undefined") {
+        if(typeof gateID == "undefined" || gateID === null) {
             return [gateAuth, "0"] // normal operation
         } else {
             return [gateAuth, gateID]
@@ -153,7 +155,8 @@ async function g_P(g_auth) {
     }
     // Uses an auth code to retrieve a payload
     console.log("Auth for payload API: "+g_auth[0])
-    let fURL = `${payloadURL}${g_auth[0]}/${g_auth[1]}` // if no gate specified g_auth[1] is "0" (string)f
+    if(g_auth[1] === null) g_auth[1] = "0" // bookmark: temp safety
+    let fURL = `${payloadURL}${g_auth[0]}/${g_auth[1]}/0` // authcode/g_id/w_id and 0 can be used to defer last 2 params
     console.log("Payload URL: "+fURL) //was: console.log("Payload URL: "+payloadURL+g_auth+"/"+w_id)
 
     let loadResults = ""
