@@ -18,7 +18,7 @@ const payloadURL = "https://ngtr-api.onrender.com/ops/p/";
                 return false
             } else { 
                 console.log("Parsing payload.")
-                statusUI(pld)  // three-point array, payload is [1]
+                statusUI(pld[2])  // three-point array, payload is [1]
                 let status = p_P(pld) 
                 if(status == false) {
                     console.log("parsePayload returned a false.")
@@ -195,15 +195,15 @@ function p_P(g_pld) {
     // parsePayload(getPayload(getURLAuth()))
     // getPAyload: uses auth code, gets payload and parse instructions
     // parsePAylaod: gets parse/payload object, renders to screen.
-    console.log("in parsePayload() with parameter: ")
-    console.log(g_pld)
+    console.log("in parsePayload() with payload [1][0]: ")
+    console.log(g_pld[1][0])
     if(g_pld[0] != "OK") {
         console.log("Payload was false.")
         statusUI(g_pld[2])
         return false;
     } else {
-        let pld = g_pld[1].gatekey_payload
-        let rtn = g_pld[1].gatekey_returnformat
+        let pld = g_pld[1][0].gatekey_payload
+        let rtn = g_pld[1][0].gatekey_returnformat
         switch(rtn) {
             case "V_VIMEO_R1_H":
                 parseVimeoR1_hidden(pld)
@@ -241,9 +241,11 @@ function p_P(g_pld) {
                 parseSproutLightbox(pld)
                 break;
             case "S_SPROUTP":
-                parseSproutPlaylist(pld)
-            default: 
-            break;
+                parseSproutPlaylist(pld);
+                break;
+            default:
+                console.log("ERROR: bad rtn value")
+                return false;
         }
 
     return true;
