@@ -28,16 +28,13 @@ const payloadURL = "https://ngtr-api.onrender.com/ops/p/";
                     let pinj = document.getElementById('p_inj')
                     let redo = document.createElement('a')
                     redo.classList.add('statusconsole')
-                    redo.innerText = "Start Over"
+                    redo.textContent = "Start Over"
                     redo.title = "Your existing gate auth will be kept as a cookie and you can reverify to select a different gate."
-                    redo.addEventListener('click', () => {
-                        let cu = window.location.href;
-                        let url = new URL(cu)
-                        const cleanURL = url.origin + url.pathname;
-                        window.location = `https://janus-auth.vercel.app/?callback=${cleanURL}`;
-                        return;
-                    })
-                    pinj.appendChild(redo)
+                    let cu = window.location.href;
+                    let url = new URL(cu)
+                    const cleanURL = url.origin + url.pathname;
+                    redo.href=`https://janus-auth.vercel.app/?callback=${cleanURL}`
+                    pinj.insertAdjacentElement(redo)
                 }
                 return status
             }
