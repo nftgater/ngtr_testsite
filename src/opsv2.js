@@ -24,14 +24,27 @@ const payloadURL = "https://ngtr-api.onrender.com/ops/p/";
                     console.log("parsePayload returned a false.")
                     drawBtn()
                 } else {
-                    statusUI(["Gate tech brought to you by", "", " <a href='https://nftgater.vercel.app' style='color:#f2f050' />NFT GATR</a>"])
+                    statusUI(`Gate tech made by <a href='https://nftgater.vercel.app' />NFT Gater</a>`)
+                    let pinj = document.getElementById('p_inj')
+                    let redo = document.createElement('a')
+                    redo.classList.add('statusconsole')
+                    redo.innerText = "Start Over"
+                    redo.title = "Your existing gate auth will be kept as a cookie and you can reverify to select a different gate."
+                    redo.addEventListener('click', () => {
+                        let cu = window.location.href;
+                        let url = new URL(cu)
+                        const cleanURL = url.origin + url.pathname;
+                        window.location = `https://janus-auth.vercel.app/?callback=${cleanURL}`;
+                        return;
+                    })
+                    pinj.appendChild(redo)
                 }
                 return status
             }
         })
     } else {
         console.log("Auth was false.")
-        statusUI(["READY", "", "Click to begin auth process."])
+        statusUI("Click to begin auth process.")
         drawBtn()
         return false
     }
@@ -42,7 +55,7 @@ const payloadURL = "https://ngtr-api.onrender.com/ops/p/";
 ////////////// STASHED /////////// Leave Start() in place while you work on alternative solutions.
 
 function statusUI(msg) {
-    document.getElementById("statusconsole").innerHTML = msg[0]+": "+msg[2];
+    document.getElementById("statusconsole").innerHTML = msg;
 }
 
 function drawBtn() {
