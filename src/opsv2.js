@@ -24,7 +24,7 @@ const payloadURL = "https://ngtr-api.onrender.com/ops/p/";
                     console.log("parsePayload returned a false.")
                     drawBtn()
                 } else {
-                    statusUI(`Gate tech made by <a href='https://nftgater.vercel.app' />NFT Gater</a>`)
+                    statusUI(`Gating tech made by <a href='https://nftgater.vercel.app' />NFT Gater</a>`)
                     let pinj = document.getElementById('p_inj')
                     let redo = document.createElement('a')
                     redo.classList.add('statusconsole')
@@ -34,7 +34,7 @@ const payloadURL = "https://ngtr-api.onrender.com/ops/p/";
                     let url = new URL(cu)
                     const cleanURL = url.origin + url.pathname;
                     redo.href=`https://janus-auth.vercel.app/?callback=${cleanURL}`
-                    pinj.insertAdjacentElement(redo)
+                    pinj.insertAdjacentElement('afterend', redo)
                 }
                 return status
             }
