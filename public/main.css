@@ -392,6 +392,10 @@ height: -webkit-fill-available;
 	max-width: none;
 }
 
+.container {
+	text-align: center;
+}
+
 .statusconsole {
 	background-color: #000;
 	color: #20C20E;
