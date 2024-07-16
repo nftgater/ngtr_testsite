@@ -5,14 +5,14 @@
     { "src": "server.js", "use": "@vercel/node" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "server.js" },
+    { "src": "/creators/(.*)", "dest": "/creators/$1" },
     {
-
       "src": "/3P.css",
       "dest": "/public/3P.css",
       "headers": {
         "Content-Type": "text/css"
       }
-    }
+    },
+    { "src": "/(.*)", "dest": "server.js" }
   ]
 }

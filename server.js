@@ -22,7 +22,7 @@ app.get('/test-page', (req, res) => {
 });
 
 app.get('/creators/unnimagnum', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist', './creators/unnimagnum.html'));
+    res.sendFile(path.join(__dirname, 'dist', '/creators/unnimagnum.html'));
 });
 
 // Start the server
