@@ -1,0 +1,36 @@
+<html lang="en"><head><title>Test Page</title><link rel="stylesheet" href="../css/bootstrap.min.css"><link rel="stylesheet" href="../css/main.css"><link rel="stylesheet" href="/public/3P.css"><script defer="defer" src="main.bundle.js"></script><script defer="defer" src="styles.bundle.js"></script></head><body><nav class="navbar navbar-expand-lg"><ul class="navbar-nav mr-4"><li class="nav-item"><a class="nav-link" data-value="home" href="/">HOME</a></li><li class="nav-item"><a class="nav-link" data-value="Test Page" href="/test-page.html">Gate Tester</a></li><li class="nav-item"><a class="nav-link" data-value="unnimagnum" href="/creators/unnimagnum.html">Unnimagnum</a></li></ul></nav><header class="header"><div class="overlay" style="position:absolute;min-height: 100%;min-width: 100%;left:0;top:0;"></div><div class="container"><div class="description"><div class="centerbox"><h1>GATR Test Page</h1><p>This website serves as a testing ground for the GATR token gating service. Imagine this page is your website, where your GATR copy/paste script lives.</p><script async type="module">// NOTE: This OPS script modified for Vue3
+	import libz from "https://ngtr.nyc3.digitaloceanspaces.com/opsv2.js"
+	try {
+
+		// Style importing Start
+		var cssId = 'myCss';  // you could encode the css path itself to generate id..
+		console.log("DEBUG: testing CSS injection mid-script for OPS")
+		if (!document.getElementById(cssId))
+		{
+			var head  = document.getElementsByTagName('head')[0];
+			var link  = document.createElement('link');
+			link.id   = cssId;
+			link.rel  = 'stylesheet';
+			link.type = 'text/css';
+			link.href = 'https://ngtr.nyc3.digitaloceanspaces.com/3P.css';
+			link.media = 'all';
+			head.appendChild(link);
+		}
+		// Style importing end
+
+		document.getElementById("ops_start").addEventListener("click", () => {  
+		let callback = window.location;
+		window.location = `https://janus-auth.vercel.app/?callback=${callback}`; // on J2 site it is: https%3A%2F%2Fwww.jesus-2.com%2Fwatch
+		}) 
+		let auth = libz.g_A()
+		if(auth) { 
+		document.getElementById("statusconsole").innerHTML = "&#9989; Loading gate payload..."
+		libz.g_E(auth); 
+		} else { 
+		libz.drawBtn(); 
+		document.getElementById("statusconsole").innerHTML = "&#9889; Authenticate wallet to begin." 
+		} 
+	}catch(err) {
+		console.log("caught in ops:")
+		console.log(err)
+	}</script><div id="authbox"><button id="ops_start" style="display:none;">Token Portal</button><div id="statusconsole" class="statusconsole">Initializing...</div><div id="p_inj"></div></div></div></div></div></header><footer class="footer mt-auto py-3" style="background:#052c4d;position:absolute;bottom:-50px;width:100%;"><div class="container"><p class="text-center text-white lead">Copyright &copy;<script>document.write(new Date().getFullYear());</script>Wyrd Ventures</p></div></footer><script src="./js/jquery.min.js"></script><script src="./js/bootstrap.min.js"></script><script src="./js/index.js"></script></body></html>

@@ -13,6 +13,18 @@ app.get('*', (req, res) => {
 });
 */
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
+app.get('/test-page', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist', 'test-page.html'));
+});
+
+app.get('/creators/unnimagnum', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist', '/creators/unnimagnum.html'));
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
