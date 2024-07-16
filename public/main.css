@@ -403,5 +403,11 @@ height: -webkit-fill-available;
 	.page_subbox {
 		background-color: #FAD9B6;
 		color: black;
+
+		p {
+			color: black;
+		}
 	}
-}
+	}
+
+	
