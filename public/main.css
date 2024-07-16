@@ -376,10 +376,12 @@ height: -webkit-fill-available;
     margin-right: auto;
     margin-left: auto;
 	width: 100%;
+	text-align: center;
 }
 
 .header .container {
 	max-width: none;
+	text-align: center;
 }
 
 .ama-header .container {
