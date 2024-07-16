@@ -1,4 +1,5 @@
 import '../css/main.css';
+import '../css/3P.css';
 import '../css/bootstrap.min.css';
 
 // src/js/index.js
