@@ -28,12 +28,12 @@ html,h1,h2,h3,h4,h5,h6,a{
 	margin-left: auto;
     margin-right: auto;
 	margin-top: 1em;
-    border: 1px solid var(--primary-alt);
+    border: 1px solid black;
 	width: 100%;
     border-radius: 3em;
     box-shadow: 0 3px 10px #000c;
     padding: 2em;
-    background-color: var(--primary-alt);
+    background-color: #190933;
 	text-align: center;
 	color: var(--light);
 }
@@ -42,32 +42,27 @@ html,h1,h2,h3,h4,h5,h6,a{
     border: 1px solid rgba(0,0,0,.3);
     margin: 2em;
 	transition: 0.3s ease-in-out;
-	background-color: var(--app-bg);
+	background-color: #1A2730;
 	padding: 2em;
 	border-radius: 1em;
 	text-align: center;
 
 	label {
-		color: var(--primary-alt);
+		color: #69FCCD;
 	}
 
-	&.is-expanded {
-		width: calc(80vw - var(--sidebar-width));
-		min-width: 77vw;
-		transition: 0.3s ease-in-out;
-	}
 
 	h1 {
-		color: var(--accent);
+		color: #69FCCD;
 		line-height: 1.5em;
 	}
 
 	h2, h3 {
-		color: var(--reglink);
+		color: #69FCCD;
 	}
 
 	p {
-		color: var(--light-msg);
+		color: #FFFFFF;
 	}
 }
 
@@ -94,6 +89,7 @@ html,h1,h2,h3,h4,h5,h6,a{
     background-color: var(--blue-cta);
     color: var(--light-msg);
 }
+
 
 
 .navbar{
@@ -399,4 +395,13 @@ height: -webkit-fill-available;
 	color: #20C20E;
 }
 
-
+#unnimagnum {
+	background-color: #303030;
+	.page_box {
+		background-color: #E26DE2;
+	}
+	.page_subbox {
+		background-color: #FAD9B6;
+		color: black;
+	}
+}
