@@ -23,6 +23,15 @@
    justify-content: center;
 }
 
+.centered_circ {
+	background-color: rgba(38, 70, 83,0.6);
+	margin: auto;
+	padding: 10px;
+	border-radius: 3em;
+	-webkit-box-shadow: 0px 0px 49px 15px rgba(218,255,69,1);
+	-moz-box-shadow: 0px 0px 49px 15px rgba(218,255,69,1);
+	box-shadow: 0px 0px 49px 15px rgba(218,255,69,1);
+}
 
 #p_inj li {
 	width: 200px; 
@@ -45,6 +54,16 @@
 
 #p_inj .imgcover {
 	background: transparent;
+}
+
+.nessiebg {
+	background: url(/images/headerback.jpg);
+    background-size: cover;
+    background-position: center;
+	text-align: center;
+	padding: 3em;
+	min-height: 70vh;
+	display: block;
 }
 
 #p_inj li img {
@@ -76,4 +95,8 @@
 	font-size: 1.5em;
 	font-family: monospace;
 	padding: 15px;
+}
+
+#unnimagnum {
+	background-color: #303030;
 }

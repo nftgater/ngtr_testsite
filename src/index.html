@@ -23,27 +23,29 @@
 		  HOME</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" data-value="Test Page" href="/test-page.html">Gate Tester</a>
-		  </li>
-		
-		
-		<li class="nav-item">
-		  <a class="nav-link " data-value="contact" href="/index.html#contact">Contact</a>
+		<a class="nav-link" data-value="Test Page" href="/test-page.html">Gate Tester</a>
 		</li>
+		<li class="nav-item">
+			<a class="nav-link " data-value="unnimagnum" href="/creators/unnimagnum.html">Unnimagnum</a>
+		</li>
+		
+		
 	  </ul>
 	
   </div>
 </nav>
-<heading style="text-align:center;background-color:#1468ad;padding:3em;height:60vh;display:block;color:#ffffff">
-	<h1>Nessie Club</h1>
-	<h2>A Token Gating Test Site</h2>
-	<img style="padding:1em;" src="./assets/images/nessie.png" width="500px" />
+<heading class="nessiebg">
+	<div clas="centered_circ">
+		<h1>Nessie Club</h1>
+		<h2>A Token Gating Test Site</h2>
+		<img style="padding:1em;" src="./assets/images/nessie.png" width="500px" />
+	</div>
 </heading>
 
 <div class="about" id="about">
 	<div class="container text-center">
 		<p>Made by</p>
-		<img src="./images/gatr_splash.png" width="600px" /><p></p>
+		<img src="./images/gatr_splash.png" style="width:300px;border-radius:30px;" /><p></p>
 	  <p></p>
 		<h3 style="margin-top:1em;">A Cardano Token Gating Service</h3><p></p>
 		<h4>GATR is the Cardano app powering these token gates. GATR allows creators and businesses to apply on-page utility to their own websites based on their token collections, without needing any coding skills. The app is currently in beta but you can follow <a href="https://twitter.com/nftgater">@NFTGATER on Twitter</a> and ask for a tester account.</h4>
@@ -52,62 +54,10 @@
 
 
 
-<!-- Contact form -->
-<a name="contact"></a>
-<div class="contact-form" id="contact">
-	<div class="containerbig text-center">
-		<h1>Get In Touch</h1>
-		<a href="https://twitter.com/nftgater"><p>@NFTGATER on Twitter</p>
-		<img src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2011/10/amathaon512.png" width="300px" /></a>
-	</div>
-</div>
-<div class="container">
-	<div class="containerbig text-center contact-form">
-	<h1>Beta Tester Accounts</h1>
-	<p>While anyone can make an account with just a wallet, the full app will only be available to OG NFT holders during the beta test to keep the user population low.</p>
-	<p>The legacy NFT drop for this project was known as Naptcha. </p>
-	<img src="https://studio.nmkr.io/images/buttons/paybutton_1_1.svg" onclick="javascript:openPaymentWindow()">
-
-	<script type="text/javascript">
-		function openPaymentWindow() {
-			const paymentUrl = "https://pay.nmkr.io/?p=7667ca0a68cf4c64bf1ff3a065f13960&c=1";
-
-			// Specify the popup width and height
-			const popupWidth = 500;
-			const popupHeight = 700;
-
-			// Calculate the center of the screen
-			const left = window.top.outerWidth / 2 + window.top.screenX - ( popupWidth / 2);
-			const top = window.top.outerHeight / 2 + window.top.screenY - ( popupHeight / 2);
-
-			const popup =  window.open(paymentUrl, "NFT-MAKER PRO Payment Gateway",  `popup=1, location=1, width=${popupWidth}, height=${popupHeight}, left=${left}, top=${top}`);
-
-			// Show dim background
-			document.body.style = "background: rgba(0, 0, 0, 0.5)";
-
-			// Continuously check whether the popup has been closed
-			const backgroundCheck = setInterval(function () {
-				if(popup.closed) {
-					clearInterval(backgroundCheck);
-
-					console.log("Popup closed");
-
-					// Remove dim background
-					document.body.style = "";
-				}
-			}, 1000);
-		}
-	</script>
-	<p style="margin-bottom:3em"></p>
-</div>
-</div>
 	
-<footer class="footer mt-auto py-3" style="background:#052c4d;position:absolute;bottom:-50px;width:100%;">
+<footer class="footer mt-auto py-3" style="background-color:#264653;position:fixed;bottom:0px;width:100%;background:url('/images/gatr_wall4sm.jpg')">
 	<div class="container">
-		<p class="text-center text-white lead">Copyright &copy; <script type="text/javascript">
-			document.write(new Date().getFullYear());
-		  </script> Wyrd Ventures</p>
-	  
+		<b><a style="color:#E9C46A;" href="https://nftgater.vercel.app">MADE BY NFT GATER</a></b>
 	</div>
   </footer>
 <!-- add Javasscript file from js file -->

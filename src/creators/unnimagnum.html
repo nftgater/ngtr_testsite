@@ -1,0 +1,146 @@
+
+<html lang="en">
+<head>
+	<title>Test Page</title>
+	 <!-- add bootstrap css file -->
+
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="css/main.css">
+
+</head>
+<body id="unnimagnum">
+
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src='./js/index.js'></script>
+
+
+
+  <!-- navbar -->
+
+  <nav class="navbar navbar-expand-lg ">
+	
+	
+	<ul class="navbar-nav mr-4">
+		
+	 
+   
+		<li class="nav-item">
+		  <a class="nav-link " data-value="home" href="/">
+		  HOME</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" data-value="Test Page" href="/test-page.html">Gate Tester</a>
+		  </li>
+
+		<li class="nav-item">
+		  <a class="nav-link " data-value="contact" href="/index.html#contact">Contact</a>
+		</li>
+
+		<li class="nav-item">
+			<a class="nav-link " data-value="unnimagnum" href="/creators/unnimagnum.html">Unnimagnum</a>
+		</li>
+	  </ul>
+  
+</div>
+</nav>
+<header class="header ">
+  <div class="overlay" style="position:absolute;min-height: 100%;min-width: 100%;left:0;top:0;"></div>
+   <div class="container">
+   	  <div class="description ">
+		<div class="centerbox">
+  			<h1>Unnimagnum</h1>
+  			<!-- BOOKMARK: Implement OPSv2.JS, overwrite this script when done (being edited in the API SDK arbitrarily)-->
+
+
+			<!-- ON-PAGE-SCRIPT --> 
+			<script async type="module">  // NOTE: This OPS script modified for Vue3
+				import libz from "https://ngtr.nyc3.digitaloceanspaces.com/opsv2.js"
+				try {
+
+					// Style importing Start
+					var cssId = 'myCss';  // you could encode the css path itself to generate id..
+					console.log("DEBUG: testing CSS injection mid-script for OPS")
+					if (!document.getElementById(cssId))
+					{
+						var head  = document.getElementsByTagName('head')[0];
+						var link  = document.createElement('link');
+						link.id   = cssId;
+						link.rel  = 'stylesheet';
+						link.type = 'text/css';
+						link.href = 'https://ngtr.nyc3.digitaloceanspaces.com/3P.css';
+						link.media = 'all';
+						head.appendChild(link);
+					}
+					// Style importing end
+
+					document.getElementById("ops_start").addEventListener("click", () => {  
+					let callback = window.location;
+					window.location = `https://janus-auth.vercel.app/?callback=${callback}`; // on J2 site it is: https%3A%2F%2Fwww.jesus-2.com%2Fwatch
+					}) 
+					let auth = libz.g_A()
+					if(auth) { 
+					document.getElementById("statusconsole").innerHTML = "&#9989; Loading gate payload..."
+					libz.g_E(auth); 
+					} else { 
+					libz.drawBtn(); 
+					document.getElementById("statusconsole").innerHTML = "&#9889; Authenticate wallet to begin." 
+					} 
+				}catch(err) {
+					console.log("caught in ops:")
+					console.log(err)
+				}
+				
+				</script> 
+				<div id="authbox"> 
+				<button id="ops_start" style="display:none;">Token Portal</button> 
+				<div id="statusconsole" class="statusconsole">Initializing...</div><div id="p_inj"></div>
+				
+				</div> 
+				<!-- ON-PAGE-SCRIPT END -->
+				
+			</div>
+		</div>
+	</div>
+</header>
+
+<div class="page_box">
+	<h1>About the Creator</h1>
+	<div class="page_subbox">
+		<p>Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. </p>
+		<img src="/creators/unnimagnum.jpg" width="150px" />
+		<div class="button_md reg_btn"><a href="https://unnimagnum.com/">WEBSITE</a></div>
+	</div>
+	<div class="page_subbox">
+		<h2>About This NFT</h2>
+		<p>Description for the NFT related to these token gates coming soon. Description for the NFT related to these token gates coming soon. </p>
+		<ul>
+			<li>Policy: XYZ</li>
+			<li>Policy Locked: true</li>
+			<li>Total Available: 10,000</li>
+			<li>Price: 50 ADA</li>
+		</ul>
+		<p>See all gates found for this NFT collection in <a href="https://nftgater.vercel.app/gate_search?q_wallet=&q_url=&q_asset=xyz&q_userid=&submit=SEARCH">GATR Gate Marketplace</a></p>
+		<div class="button_lg reg_btn"><a href="https://unnimagnum.com/">Mint NFT</a></div>
+	</div>
+	<div class="page_subbox">
+		<p>Visit the GATR profile for this creator</p>
+		<div class="button_md reg_btn"><a href="https://nftgater.vercel.app/profiles?userid=pX9YBvE8UrEs5QlnfQUStcow7dL0tb">VISIT</a></div> 
+	</div>
+</div>
+
+<footer class="footer mt-auto py-3" style="background:#052c4d;position:absolute;bottom:-50px;width:100%;">
+	<div class="container">
+		<p class="text-center text-white lead">Copyright &copy; <script type="text/javascript">
+			document.write(new Date().getFullYear());
+		  </script> Wyrd Ventures</p>
+	  
+	</div>
+  </footer>
+
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src='js/index.js'></script>
+ 
+</body>
+</html>

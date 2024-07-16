@@ -24,20 +24,95 @@ html,h1,h2,h3,h4,h5,h6,a{
   border-radius: 10px;
 }
 
+.page_box {
+	margin-left: auto;
+    margin-right: auto;
+	margin-top: 1em;
+    border: 1px solid var(--primary-alt);
+	width: 100%;
+    border-radius: 3em;
+    box-shadow: 0 3px 10px #000c;
+    padding: 2em;
+    background-color: var(--primary-alt);
+	text-align: center;
+	color: var(--light);
+}
+
+.page_subbox {
+    border: 1px solid rgba(0,0,0,.3);
+    margin: 2em;
+	transition: 0.3s ease-in-out;
+	background-color: var(--app-bg);
+	padding: 2em;
+	border-radius: 1em;
+	text-align: center;
+
+	label {
+		color: var(--primary-alt);
+	}
+
+	&.is-expanded {
+		width: calc(80vw - var(--sidebar-width));
+		min-width: 77vw;
+		transition: 0.3s ease-in-out;
+	}
+
+	h1 {
+		color: var(--accent);
+		line-height: 1.5em;
+	}
+
+	h2, h3 {
+		color: var(--reglink);
+	}
+
+	p {
+		color: var(--light-msg);
+	}
+}
+
+.button_lg {
+    padding: 1em 2em;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 1em; /* was 1em auto */
+}
+
+.button_md {
+    padding: 1em;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.button_inline {
+    padding: 7px 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.reg_btn {
+    background-color: var(--blue-cta);
+    color: var(--light-msg);
+}
+
+
 .navbar{
-	background:#052c4d;
+	background:#264653;
+	color: #F4A261;
 }
 .nav-link , .navbar-brand{
-	color: #f4f4f4;
+	color: #E9C46A;
 	cursor: pointer;
 }
 .nav-link{
 	margin-right: 1em !important;
 }
 .nav-link:hover{
-	background: #f4f4f4;
-	color: #052c4d;
+	color: #F4A261;
+}
 
+.navbar a {
+	color: #E9C46A;
 }
 .navbar-collapse{
  justify-content: center;
