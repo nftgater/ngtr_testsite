@@ -184,7 +184,7 @@ height: -webkit-fill-available;
 }
 
 .nessiebg {
-	background: url("./images/headerback.jpg");
+	background: url("/images/headerback.jpg");
     background-size: cover;
     background-position: center;
 	text-align: center;
