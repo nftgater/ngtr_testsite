@@ -53,7 +53,7 @@
 <!-- ON-PAGE-SCRIPT --> 
 <script async type="module">  // NOTE: This OPS script modified for Vue3
 	import libz from "https://ngtr.nyc3.digitaloceanspaces.com/opsv2.js" // bookmark: failed trying to load a local version.
-	// import { Encoder } from 'https://cdn.jsdelivr.net/npm/@nuintun/qrcode@latest' // was: '../node_modules/@nuintun/qrcode' // bookmark: would ONLY work for test site. // bookmark: debugging QR payload types
+	import { Encoder } from 'https://cdn.jsdelivr.net/npm/qrcode@1.5.3/lib/browser.min.js' // was: https://cdn.jsdelivr.net/npm/@nuintun/qrcode@latest // was: '../node_modules/@nuintun/qrcode' // bookmark: would ONLY work for test site. // bookmark: debugging QR payload types
 	try {
 
 		// Style importing Start
@@ -91,30 +91,26 @@
 					console.log(resp_GE[1])
 					let qrPld = resp_GE[1]
 
-					import('https://cdn.jsdelivr.net/npm/qrcode@1.5.3/lib/browser.min.js') // was: https://cdn.jsdelivr.net/npm/@nuintun/qrcode@latest
-					.then(module => {
-						const { Encoder } = module
+					const qrcode = new Encoder(); // bookmark: lib for Encoder imported by test-page.html, no idea if it will work
+					qrcode.write(pld);
+					qrcode.make();
+					console.log("QR made?")
+					console.log(qrcode.toDataURL());
+					let qr_img = qrcode.toDataURL();
+					document.getElementById("p_inj").innerHTML = `<p>Gate Results</p><img width="200px" src="${qr_img}" />`
 
-						const qrcode = new Encoder(); // bookmark: lib for Encoder imported by test-page.html, no idea if it will work
-						qrcode.write(pld);
-						qrcode.make();
-						console.log("QR made?")
-						console.log(qrcode.toDataURL());
-						let qr_img = qrcode.toDataURL();
-						document.getElementById("p_inj").innerHTML = `<p>Gate Results</p><img width="200px" src="${qr_img}" />`
-
-						statusUI(`Gating tech made by <a href='https://nftgater.vercel.app' />NFT Gater</a>`)
-						let pinj = document.getElementById('p_inj')
-						let redo = document.createElement('a')
-						redo.classList.add('statusconsole')
-						redo.textContent = "Start Over"
-						redo.title = "Your existing gate auth will be kept as a cookie and you can reverify to select a different gate."
-						let cu = window.location.href;
-						let url = new URL(cu)
-						const cleanURL = url.origin + url.pathname;
-						redo.href=`https://janus-auth.vercel.app/?callback=${cleanURL}`
-						pinj.insertAdjacentElement('afterend', redo)
-					})
+					statusUI(`Gating tech made by <a href='https://nftgater.vercel.app' />NFT Gater</a>`)
+					let pinj = document.getElementById('p_inj')
+					let redo = document.createElement('a')
+					redo.classList.add('statusconsole')
+					redo.textContent = "Start Over"
+					redo.title = "Your existing gate auth will be kept as a cookie and you can reverify to select a different gate."
+					let cu = window.location.href;
+					let url = new URL(cu)
+					const cleanURL = url.origin + url.pathname;
+					redo.href=`https://janus-auth.vercel.app/?callback=${cleanURL}`
+					pinj.insertAdjacentElement('afterend', redo)
+		
 
 					
 				}
