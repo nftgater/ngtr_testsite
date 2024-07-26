@@ -158,6 +158,8 @@ async function g_P(g_auth) {
 function p_P(g_pld) {
  console.log("in parsePayload() with payload [1][0]: ")
  console.log(g_pld[1][0])
+ console.log(g_pld[0])
+ 
  if(g_pld[0] != "OK") {
      console.log("Payload was false.")
      statusUI(g_pld[2])

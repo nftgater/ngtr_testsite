@@ -65,15 +65,15 @@ async function gL() {
         .then(pld => {
             console.log("Payload: ")
             console.log(pld)
-            if(pld == false || typeof pld == undefined || pld[1] == "FAIL") { 
-                console.log("Payload was false.")
+            if(pld[0] !== "OK") { 
+                console.log(pld[2])
                 statusUI(pld)  // three-point array, payload is [1]
                 drawBtn()
                 return false
             } else { 
-                console.log("Parsing payload.")
+                console.log("Parsing payload....")
                 statusUI(["OK", "", "Parsing payload..."])
-                let status = p_P(pld) 
+                let status = p_P(pld[1][0]) 
                 if(status == false) {
                     console.log("parsePayload returned a false.")
                     drawBtn()
@@ -194,7 +194,7 @@ function p_P(g_pld) {
     // parsePayload(getPayload(getURLAuth()))
     // getPAyload: uses auth code, gets payload and parse instructions
     // parsePAylaod: gets parse/payload object, renders to screen.
-    console.log("in parsePayload() with parameter: ")
+    console.log("in parsePayload() with: ")
     console.log(g_pld)
     if(g_pld == false || g_pld[0] == "FAIL") {
         console.log("Payload was false.")
