@@ -20,7 +20,7 @@ const payloadURL = "https://ngtr-api.onrender.com/ops/p/";
                 console.log("Parsing payload.")
                 statusUI(pld[2])  // three-point array, payload is [1]
                 let status = p_P(pld[1][0]) 
-                
+
                 console.log("status after p_P:")
                 console.log(status)
 
@@ -297,32 +297,6 @@ function parseTicket(pld) {
 
     // p_T
     console.log("Parsing payload as a QR (requires Encoder lib)")
-    
-    /* bookmark: MIGRATE this to a passthrough to local code.
-
-    const qrcode = new Encoder(); // bookmark: lib for Encoder imported by test-page.html, no idea if it will work
-    qrcode.write(pld);
-    qrcode.make();
-    console.log("QR made?")
-    console.log(qrcode.toDataURL());
-    let qr_img = qrcode.toDataURL();
-    document.getElementById("p_inj").innerHTML = `<p>Gate Results</p><img width="200px" src="${qr_img}" />`
-
-
-    And then upon successful processing: 
-
-    statusUI(`Gating tech made by <a href='https://nftgater.vercel.app' />NFT Gater</a>`)
-    let pinj = document.getElementById('p_inj')
-    let redo = document.createElement('a')
-    redo.classList.add('statusconsole')
-    redo.textContent = "Start Over"
-    redo.title = "Your existing gate auth will be kept as a cookie and you can reverify to select a different gate."
-    let cu = window.location.href;
-    let url = new URL(cu)
-    const cleanURL = url.origin + url.pathname;
-    redo.href=`https://janus-auth.vercel.app/?callback=${cleanURL}`
-    pinj.insertAdjacentElement('afterend', redo)
-    */
 
     return ["PASS_QR",pld,"parseTicket passthrough"];
 }
