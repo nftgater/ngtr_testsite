@@ -78,12 +78,13 @@ async function g_E(auth) {
      console.log("payload:")
      console.log(pld)
      if(pld[0] !== "OK") {
+      
        drawBtn()
        return false
      } else {
        console.log("parsing payload")
        document.getElementById('statusconsole').innerHTML = pld[2]
-       let status = p_P(pld)
+       let status = p_P(pld[1][0])
        if(status == false) {
          drawBtn();
          return;
@@ -156,76 +157,71 @@ async function g_P(g_auth) {
 }
 // p_P
 function p_P(g_pld) {
- console.log("in parsePayload() with payload [1][0]: ")
- console.log(g_pld[1][0])
- console.log(g_pld[0])
- 
- if(g_pld[0] != "OK") {
-     console.log("Payload was false.")
-     statusUI(g_pld[2])
-     return false;
- } else {
-   if(payloadDone == false) {
-     document.getElementById('m_opt').style['display'] = "none"
-     document.getElementById('ops_start').style['display'] = "none"
-     // refreshing p_inj
-     document.getElementById('p_inj').innerHTML = ""
-   
-     let pld = g_pld[1][0].gatekey_payload
-     let rtn = g_pld[1][0].gatekey_returnformat
-     
-     payloadDone = true
-     
-     switch(rtn) {
-         case "V_VIMEO_R1_H":
-             parseVimeoR1_hidden(pld)
-             break;
-         case "V_VIMEO_F1_H":
-             parseVimeoF1_hidden(pld)
-             break;
-         case "V_VIMEO_R1_P":
-             parseVimeoR1_private(pld)
-             break;
-         case "R_STRING":
-             parseString(pld);
-             break;
-         case "P_TICKET":
-             parseTicket(pld);
-             return true;
-         case "P_HTML":
-             parseHTML(pld);
-             break;
-         case "P_SCRIPT":
-             parseScript(pld);
-             break;
-         case "P_REDIRECT":
-             parseRedirect(pld);
-             break;
-         case "S_YOUTUBE":
-             parseYT(pld);
-             break;
-         case "P_PASSTHROUGH":
-             return pld;
-         case "S_SPROUT":
-             parseSprout(pld)
-             return true;
-         case "S_SPROUTL":
-             parseSproutLightbox(pld)
-             break;
-         case "S_SPROUTP":
-             parseSproutPlaylist(pld);
-             break;
-         default:
-             console.log("ERROR: bad rtn value")
-             return false;
-     }
+ console.log("in parsePayload() with payloa: ")
+ console.log(g_pld)
 
- return true;
-   } else {
-     console.log("payload already parsed")
-     return true;
-   }
- }
+
+  if(payloadDone == false) {
+    document.getElementById('m_opt').style['display'] = "none"
+    document.getElementById('ops_start').style['display'] = "none"
+    // refreshing p_inj
+    document.getElementById('p_inj').innerHTML = ""
+  
+    let pld = g_pld.gatekey_payload
+    let rtn = g_pld.gatekey_returnformat
+    
+    payloadDone = true
+    
+    switch(rtn) {
+        case "V_VIMEO_R1_H":
+            parseVimeoR1_hidden(pld)
+            break;
+        case "V_VIMEO_F1_H":
+            parseVimeoF1_hidden(pld)
+            break;
+        case "V_VIMEO_R1_P":
+            parseVimeoR1_private(pld)
+            break;
+        case "R_STRING":
+            parseString(pld);
+            break;
+        case "P_TICKET":
+            parseTicket(pld);
+            return true;
+        case "P_HTML":
+            parseHTML(pld);
+            break;
+        case "P_SCRIPT":
+            parseScript(pld);
+            break;
+        case "P_REDIRECT":
+            parseRedirect(pld);
+            break;
+        case "S_YOUTUBE":
+            parseYT(pld);
+            break;
+        case "P_PASSTHROUGH":
+            return pld;
+        case "S_SPROUT":
+            parseSprout(pld)
+            return true;
+        case "S_SPROUTL":
+            parseSproutLightbox(pld)
+            break;
+        case "S_SPROUTP":
+            parseSproutPlaylist(pld);
+            break;
+        default:
+            console.log("ERROR: bad rtn value")
+            return false;
+    }
+
+return true;
+  } else {
+    console.log("payload already parsed")
+    return true;
+  }
+
 }
 
 ///
