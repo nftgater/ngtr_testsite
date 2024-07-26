@@ -53,8 +53,7 @@
 <!-- ON-PAGE-SCRIPT --> 
 <script async type="module">  // NOTE: This OPS script modified for Vue3
 	import libz from "https://ngtr.nyc3.digitaloceanspaces.com/opsv2.js"
-	// bookmark: debugging QR payload types
-	import { Encoder } from '../node_modules/@nuintun/qrcode' // bookmark: would ONLY work for test site.
+	import { Encoder } from '../node_modules/@nuintun/qrcode' // bookmark: would ONLY work for test site. // bookmark: debugging QR payload types
 	try {
 
 		// Style importing Start
@@ -78,16 +77,54 @@
 		window.location = `https://janus-auth.vercel.app/?callback=${callback}`; // on J2 site it is: https%3A%2F%2Fwww.jesus-2.com%2Fwatch
 		}) 
 		let auth = libz.g_A()
+		
 		if(auth) { 
-		document.getElementById("statusconsole").innerHTML = "&#9989; Loading gate payload..."
-		libz.g_E(auth); 
+			document.getElementById("statusconsole").innerHTML = "&#9989; Loading gate payload..."
+			let resp_GE = libz.g_E(auth); 
+			console.log("debug: resp_GE")
+			console.log(resp_GE)
+
+			///// POST PROCESSING AND PASSTHROUGH
+			try {
+				if(resp_GE[0] == "PASS_QR") {
+					console.log("QR passthrough!!!")
+					console.log(resp_GE[1])
+					let qrPld = resp_GE[1]
+					
+					const qrcode = new Encoder(); // bookmark: lib for Encoder imported by test-page.html, no idea if it will work
+					qrcode.write(pld);
+					qrcode.make();
+					console.log("QR made?")
+					console.log(qrcode.toDataURL());
+					let qr_img = qrcode.toDataURL();
+					document.getElementById("p_inj").innerHTML = `<p>Gate Results</p><img width="200px" src="${qr_img}" />`
+
+					statusUI(`Gating tech made by <a href='https://nftgater.vercel.app' />NFT Gater</a>`)
+					let pinj = document.getElementById('p_inj')
+					let redo = document.createElement('a')
+					redo.classList.add('statusconsole')
+					redo.textContent = "Start Over"
+					redo.title = "Your existing gate auth will be kept as a cookie and you can reverify to select a different gate."
+					let cu = window.location.href;
+					let url = new URL(cu)
+					const cleanURL = url.origin + url.pathname;
+					redo.href=`https://janus-auth.vercel.app/?callback=${cleanURL}`
+					pinj.insertAdjacentElement('afterend', redo)
+				}
+			}catch(err) {
+				console.log("caught:")
+				console.log(err)
+				libz.drawBtn();
+				document.getElementById("statusconsole").innerHTML = "&#9889; Authenticate wallet to begin." 
+			}
 		} else { 
-		libz.drawBtn(); 
-		document.getElementById("statusconsole").innerHTML = "&#9889; Authenticate wallet to begin." 
+			libz.drawBtn(); 
+			document.getElementById("statusconsole").innerHTML = "&#9889; Authenticate wallet to begin." 
 		} 
 	}catch(err) {
 		console.log("caught in ops:")
 		console.log(err)
+		return;
 	}
 	
 	</script> 

@@ -1,4 +1,3 @@
-// bookmark: experiment with an import statment from an outisde file... import { Encoder } from '../node_modules/@nuintun/qrcode' // bookmark: would ONLY work for test site.
 const payloadURL = "https://ngtr-api.onrender.com/ops/p/"; 
 
 
@@ -21,10 +20,12 @@ const payloadURL = "https://ngtr-api.onrender.com/ops/p/";
                 console.log("Parsing payload.")
                 statusUI(pld[2])  // three-point array, payload is [1]
                 let status = p_P(pld[1][0]) 
-                if(status == false) {
-                    console.log("parsePayload returned a false")
+                if(status[0] == "ERROR" || status[0] == "FAIL") {
+                    console.log(status[2])
                     drawBtn()
-                } else {
+                } else if(status[0] == "PASS_QR") {
+                  console.log("Passing value through.")
+                } else if(status[0] == "OK") {
                     statusUI(`Gating tech made by <a href='https://nftgater.vercel.app' />NFT Gater</a>`)
                     let pinj = document.getElementById('p_inj')
                     let redo = document.createElement('a')
@@ -192,54 +193,61 @@ function p_P(g_pld) {
     console.log("in parsePayload() with: ")
     console.log(g_pld)
 
+    let resp_PP = undefined
 
-    let pld = g_pld.gatekey_payload
-    let rtn = g_pld.gatekey_returnformat
-    switch(rtn) {
-        case "V_VIMEO_R1_H":
-            parseVimeoR1_hidden(pld)
-            break;
-        case "V_VIMEO_F1_H":
-            parseVimeoF1_hidden(pld)
-            break;
-        case "V_VIMEO_R1_P":
-            parseVimeoR1_private(pld)
-            break;
-        case "R_STRING":
-            parseString(pld);
-            break;
-        case "P_TICKET":
-            parseTicket(pld);
-            return true;
-        case "P_HTML":
-            parseHTML(pld);
-            break;
-        case "P_SCRIPT":
-            parseScript(pld);
-            break;
-        case "P_REDIRECT":
-            parseRedirect(pld);
-            break;
-        case "S_YOUTUBE":
-            parseYT(pld);
-            break;
-        case "P_PASSTHROUGH":
-            return pld;
-        case "S_SPROUT":
-            parseSprout(pld)
-            return true;
-        case "S_SPROUTL":
-            parseSproutLightbox(pld)
-            break;
-        case "S_SPROUTP":
-            parseSproutPlaylist(pld);
-            break;
-        default:
-            console.log("ERROR: bad rtn value")
-            return false;
+    try {
+      let pld = g_pld.gatekey_payload
+      let rtn = g_pld.gatekey_returnformat
+      switch(rtn) {
+          case "V_VIMEO_R1_H":
+              resp_PP = parseVimeoR1_hidden(pld)
+              break;
+          case "V_VIMEO_F1_H":
+              resp_PP = parseVimeoF1_hidden(pld)
+              break;
+          case "V_VIMEO_R1_P":
+              resp_PP = parseVimeoR1_private(pld)
+              break;
+          case "R_STRING":
+              resp_PP = parseString(pld);
+              break;
+          case "P_TICKET":
+              resp_PP = parseTicket(pld);
+              return true;
+          case "P_HTML":
+              resp_PP = parseHTML(pld);
+              break;
+          case "P_SCRIPT":
+              resp_PP = parseScript(pld);
+              break;
+          case "P_REDIRECT":
+              resp_PP = parseRedirect(pld);
+              break;
+          case "S_YOUTUBE":
+              resp_PP = parseYT(pld);
+              break;
+          case "P_PASSTHROUGH":
+              return pld;
+          case "S_SPROUT":
+              resp_PP = parseSprout(pld)
+              return true;
+          case "S_SPROUTL":
+              resp_PP = parseSproutLightbox(pld)
+              break;
+          case "S_SPROUTP":
+              resp_PP = parseSproutPlaylist(pld);
+              break;
+          default:
+              console.log("ERROR: bad rtn value")
+              resp_PP = ["ERROR", null, "Bad payload type."];
+      }
+
+    return resp_PP;
+    }catch(err) {
+      console.log("caught:")
+      console.log(err)
+      return ["ERROR", null, "Caught error parsing payload."]
     }
-
-  return true;
   
 }
 
@@ -283,9 +291,10 @@ function parseSproutPlaylist(pld) {
 function parseTicket(pld) {
 
     // p_T
-    console.log("Parsing payload as a QR...")
-    console.log(pld);
+    console.log("Parsing payload as a QR (requires Encoder lib)")
     
+    /* bookmark: MIGRATE this to a passthrough to local code.
+
     const qrcode = new Encoder(); // bookmark: lib for Encoder imported by test-page.html, no idea if it will work
     qrcode.write(pld);
     qrcode.make();
@@ -294,7 +303,23 @@ function parseTicket(pld) {
     let qr_img = qrcode.toDataURL();
     document.getElementById("p_inj").innerHTML = `<p>Gate Results</p><img width="200px" src="${qr_img}" />`
 
-    return true;
+
+    And then upon successful processing: 
+
+    statusUI(`Gating tech made by <a href='https://nftgater.vercel.app' />NFT Gater</a>`)
+    let pinj = document.getElementById('p_inj')
+    let redo = document.createElement('a')
+    redo.classList.add('statusconsole')
+    redo.textContent = "Start Over"
+    redo.title = "Your existing gate auth will be kept as a cookie and you can reverify to select a different gate."
+    let cu = window.location.href;
+    let url = new URL(cu)
+    const cleanURL = url.origin + url.pathname;
+    redo.href=`https://janus-auth.vercel.app/?callback=${cleanURL}`
+    pinj.insertAdjacentElement('afterend', redo)
+    */
+
+    return ["PASS_QR",pld,"parseTicket passthrough"];
 }
 
 function parseYT(pld) {
