@@ -15,11 +15,15 @@ const payloadURL = "https://ngtr-api.onrender.com/ops/p/";
                 console.log(`${pld[2]}`)
                 document.getElementById('statusconsole').innerHTML = pld[2]
                 drawBtn()
-                return false
+                return pld
             } else { 
                 console.log("Parsing payload.")
                 statusUI(pld[2])  // three-point array, payload is [1]
                 let status = p_P(pld[1][0]) 
+                
+                console.log("status after p_P:")
+                console.log(status)
+
                 if(status[0] == "ERROR" || status[0] == "FAIL") {
                     console.log(status[2])
                     drawBtn()
@@ -38,6 +42,7 @@ const payloadURL = "https://ngtr-api.onrender.com/ops/p/";
                     redo.href=`https://janus-auth.vercel.app/?callback=${cleanURL}`
                     pinj.insertAdjacentElement('afterend', redo)
                 }
+                console.log("returning...")
                 return status
             }
         })
@@ -45,7 +50,7 @@ const payloadURL = "https://ngtr-api.onrender.com/ops/p/";
         console.log("Auth was false.")
         statusUI("Click to begin auth process.")
         drawBtn()
-        return false
+        return ["FAIL", null, "Auth was failse"]
     }
  }
 
@@ -213,7 +218,7 @@ function p_P(g_pld) {
               break;
           case "P_TICKET":
               resp_PP = parseTicket(pld);
-              return true;
+              break;
           case "P_HTML":
               resp_PP = parseHTML(pld);
               break;
@@ -325,16 +330,24 @@ function parseTicket(pld) {
 function parseYT(pld) {
     // Generate a standard youtube embed frame with the payload as a youtube URL
     console.log("In parseYT()")
-    let p_inj = document.getElementById("p_inj")
+    try {
+      let p_inj = document.getElementById("p_inj")
 
-    let yt_frame = document.createElement("iframe")
-    yt_frame.setAttribute("width", "560")
-    yt_frame.setAttribute("height", "315")
-    yt_frame.setAttribute("src", `https://www.youtube.com/embed/${pld}`)
-    yt_frame.setAttribute("frameborder", "0")
-    yt_frame.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share")
-    // yt_frame.setAttribute("allowfullscreen") not sure about this yet
-    p_inj.appendChild(yt_frame)
+      let yt_frame = document.createElement("iframe")
+      yt_frame.setAttribute("width", "560")
+      yt_frame.setAttribute("height", "315")
+      yt_frame.setAttribute("src", `https://www.youtube.com/embed/${pld}`)
+      yt_frame.setAttribute("frameborder", "0")
+      yt_frame.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share")
+      // yt_frame.setAttribute("allowfullscreen") not sure about this yet
+      p_inj.appendChild(yt_frame)
+
+      return ["OK", null, "Payload parsed"]
+    }catch(err) {
+      console.log("caught: ")
+      console.log(err)
+      return ["ERROR", null, "Caught error"]
+    }
 
 }
 // In the end, only one function gets exported

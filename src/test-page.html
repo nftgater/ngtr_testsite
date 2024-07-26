@@ -90,7 +90,7 @@
 					console.log("QR passthrough!!!")
 					console.log(resp_GE[1])
 					let qrPld = resp_GE[1]
-					
+
 					const qrcode = new Encoder(); // bookmark: lib for Encoder imported by test-page.html, no idea if it will work
 					qrcode.write(pld);
 					qrcode.make();
@@ -124,7 +124,6 @@
 	}catch(err) {
 		console.log("caught in ops:")
 		console.log(err)
-		return;
 	}
 	
 	</script> 
