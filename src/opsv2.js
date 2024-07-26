@@ -241,7 +241,7 @@ function p_P(g_pld) {
               return pld;
           case "S_SPROUT":
               resp_PP = parseSprout(pld)
-              return true;
+              return ["OK", null, "payload processed"];
           case "S_SPROUTL":
               resp_PP = parseSproutLightbox(pld)
               break;
@@ -262,25 +262,30 @@ function p_P(g_pld) {
   
 }
 
+function parseString(pld) { // preformatted
+    document.getElementById('p_inj').innerHTML = `<h1>${pld}</h1>`
+    return ["OK", null, "payload processed"];
+  }
+
 function parseVimeoR1_hidden(pld) {
     document.getElementById('p_inj').innerHTML = `<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/${pld}&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title=""></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>`
-    return true;
+    return ["OK", null, "payload processed"];
 }
 
 function parseVimeoF1_hidden(pld) { // bookmark: unused
     document.getElementById('p_inj').innerHTML = `<iframe src="https://player.vimeo.com/video/${pld}&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title=""></iframe>`
-    return true;
+    return ["OK", null, "payload processed"];
 }
 
 function parseVimeoR1_private(pld) { // or public
     document.getElementById('p_inj').innerHTML = `<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/${pld}&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title=""></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>`
-    return true;
+    return ["OK", null, "payload processed"];
 }
 
 
 function parseRedirect(pld) {
     window.location = `${pld}?src=${window.location}`
-    return true;
+    return ["OK", null, "payload processed"];
 }
 
 function parseSprout(pld) {
@@ -305,6 +310,9 @@ function parseTicket(pld) {
     console.log("Parsing payload as a QR (requires Encoder lib)")
 
     try {
+      // bookmark: copy of parseString
+      document.getElementById('p_inj').innerHTML = `<h1>${pld}</h1>`
+      document.getElementById('p_inj').title = "Original payload was a QR"
   
       return ["PASS_QR",pld,"parseTicket passthrough"];
     } catch(err) {
@@ -347,4 +355,5 @@ export default {
     //gL, 
     storeDPCookie, 
     getLocalItem, 
+    parseString
 }
