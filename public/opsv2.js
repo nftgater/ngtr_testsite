@@ -1,3 +1,5 @@
+import { Encoder } from '/qrcode'
+
 const payloadURL = "https://ngtr-api.onrender.com/ops/p/"; 
 
 
@@ -305,7 +307,14 @@ function parseTicket(pld) {
     console.log("Parsing payload as a QR (requires Encoder lib)")
 
     try {
-  
+      const qrcode = new Encoder(); // bookmark: lib for Encoder imported by test-page.html, no idea if it will work
+      qrcode.write(pld);
+      qrcode.make();
+      console.log("QR made?")
+      console.log(qrcode.toDataURL());
+      let qr_img = qrcode.toDataURL();
+      document.getElementById("p_inj").innerHTML = `<p>Gate Results</p><img width="200px" src="${qr_img}" />`
+
       return ["PASS_QR",pld,"parseTicket passthrough"];
     } catch(err) {
       console.log("caught:")
