@@ -32,6 +32,7 @@ const payloadURL = "https://ngtr-api.onrender.com/ops/p/";
             console.log("returning?")
             return status
           } else if(status[0] == "OK") {
+              /* depreciate: done by test-page
               statusUI(`Gating tech made by <a href='https://nftgater.vercel.app' />NFT Gater</a>`)
               let pinj = document.getElementById('p_inj')
               let redo = document.createElement('a')
@@ -43,6 +44,7 @@ const payloadURL = "https://ngtr-api.onrender.com/ops/p/";
               const cleanURL = url.origin + url.pathname;
               redo.href=`https://janus-auth.vercel.app/?callback=${cleanURL}`
               pinj.insertAdjacentElement('afterend', redo)
+              */
           }
           console.log("returning...")
           return status
@@ -355,5 +357,6 @@ export default {
     //gL, 
     storeDPCookie, 
     getLocalItem, 
-    parseString
+    parseString, 
+    statusUI
 }
