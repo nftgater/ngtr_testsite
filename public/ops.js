@@ -257,7 +257,7 @@ function parseSproutLightbox(pld) {
 }
 
 function parseTicket(pld) {
-   /* Temporary block, cannot load qrcode module (Encoder) from a third party site (yet)
+
 
     // p_T
     console.log("Parsing payload as a QR...")
@@ -270,7 +270,7 @@ function parseTicket(pld) {
 console.log(qrcode.toDataURL());
 let qr_img = qrcode.toDataURL();
 document.getElementById("p_inj").innerHTML = `<p>Gate Results</p><img width="200px" src="${qr_img}" />`
-*/
+
 return true;
 }
 
