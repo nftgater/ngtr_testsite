@@ -1,4 +1,4 @@
-import { Encoder } from '../node_modules/@nuintun/qrcode'
+import { Encoder } from '/qrcode'
 
 const payloadURL = "https://ngtr-api.onrender.com/ops/p/"; 
 
