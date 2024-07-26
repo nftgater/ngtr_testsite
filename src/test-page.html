@@ -80,7 +80,7 @@
 		
 		if(auth) { 
 			document.getElementById("statusconsole").innerHTML = "&#9989; Loading gate payload..."
-			let resp_GE = libz.g_E(auth); 
+			let resp_GE = await libz.g_E(auth); 
 			console.log("debug: resp_GE")
 			console.log(resp_GE)
 

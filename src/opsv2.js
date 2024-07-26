@@ -7,45 +7,47 @@ const payloadURL = "https://ngtr-api.onrender.com/ops/p/";
      console.log("Executing auth: ")
      console.log(auth)
      if(auth) {
-        await g_P(auth) // was await g_P(auth, w_id)
-        .then(pld => {
-            console.log("Payload: ")
-            console.log(pld)
-            if(pld[0] !== "OK") { // was: pld[1]
-                console.log(`${pld[2]}`)
-                document.getElementById('statusconsole').innerHTML = pld[2]
-                drawBtn()
-                return pld
-            } else { 
-                console.log("Parsing payload.")
-                statusUI(pld[2])  // three-point array, payload is [1]
-                let status = p_P(pld[1][0]) 
+      let pld = await g_P(auth)
+  
+      console.log("Payload: ")
+      console.log(pld)
+      if(pld[0] !== "OK") { // was: pld[1]
+          console.log(`${pld[2]}`)
+          document.getElementById('statusconsole').innerHTML = pld[2]
+          drawBtn()
+          return pld
+      } else { 
+          console.log("Parsing payload.")
+          statusUI(pld[2])  // three-point array, payload is [1]
+          let status = p_P(pld[1][0]) 
 
-                console.log("status after p_P:")
-                console.log(status)
+          console.log("status after p_P:")
+          console.log(status)
 
-                if(status[0] == "ERROR" || status[0] == "FAIL") {
-                    console.log(status[2])
-                    drawBtn()
-                } else if(status[0] == "PASS_QR") {
-                  console.log("Passing value through.")
-                } else if(status[0] == "OK") {
-                    statusUI(`Gating tech made by <a href='https://nftgater.vercel.app' />NFT Gater</a>`)
-                    let pinj = document.getElementById('p_inj')
-                    let redo = document.createElement('a')
-                    redo.classList.add('statusconsole')
-                    redo.textContent = "Start Over"
-                    redo.title = "Your existing gate auth will be kept as a cookie and you can reverify to select a different gate."
-                    let cu = window.location.href;
-                    let url = new URL(cu)
-                    const cleanURL = url.origin + url.pathname;
-                    redo.href=`https://janus-auth.vercel.app/?callback=${cleanURL}`
-                    pinj.insertAdjacentElement('afterend', redo)
-                }
-                console.log("returning...")
-                return status
-            }
-        })
+          if(status[0] == "ERROR" || status[0] == "FAIL") {
+              console.log(status[2])
+              drawBtn()
+          } else if(status[0] == "PASS_QR") {
+            console.log("Passing value through...")
+            console.log("returning?")
+            return status
+          } else if(status[0] == "OK") {
+              statusUI(`Gating tech made by <a href='https://nftgater.vercel.app' />NFT Gater</a>`)
+              let pinj = document.getElementById('p_inj')
+              let redo = document.createElement('a')
+              redo.classList.add('statusconsole')
+              redo.textContent = "Start Over"
+              redo.title = "Your existing gate auth will be kept as a cookie and you can reverify to select a different gate."
+              let cu = window.location.href;
+              let url = new URL(cu)
+              const cleanURL = url.origin + url.pathname;
+              redo.href=`https://janus-auth.vercel.app/?callback=${cleanURL}`
+              pinj.insertAdjacentElement('afterend', redo)
+          }
+          console.log("returning...")
+          return status
+      }
+    
     } else {
         console.log("Auth was false.")
         statusUI("Click to begin auth process.")
@@ -198,9 +200,11 @@ function p_P(g_pld) {
     console.log("in parsePayload() with: ")
     console.log(g_pld)
 
-    let resp_PP = undefined
+    
 
     try {
+      let resp_PP = undefined
+
       let pld = g_pld.gatekey_payload
       let rtn = g_pld.gatekey_returnformat
       switch(rtn) {
@@ -218,6 +222,8 @@ function p_P(g_pld) {
               break;
           case "P_TICKET":
               resp_PP = parseTicket(pld);
+              console.log("debug: parseTicket return?")
+              console.log(resp_PP)
               break;
           case "P_HTML":
               resp_PP = parseHTML(pld);
@@ -247,7 +253,7 @@ function p_P(g_pld) {
               resp_PP = ["ERROR", null, "Bad payload type."];
       }
 
-    return resp_PP;
+      return resp_PP;
     }catch(err) {
       console.log("caught:")
       console.log(err)
