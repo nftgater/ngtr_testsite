@@ -421,6 +421,10 @@ height: -webkit-fill-available;
 
 #unnimagnum {
 	background-color: #303030;
+	.centerbox {
+		background-color: #E26DE2;
+	}
+
 	.page_box {
 		background-color: #E26DE2;
 		width: unset;
