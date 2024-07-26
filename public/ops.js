@@ -1,4 +1,4 @@
-//Temp blockimport { Encoder } from '../node_modules/@nuintun/qrcode'  /// direct from npm??????
+//import { Encoder } from '../node_modules/@nuintun/qrcode'  /// direct from npm??????
 //DEPRECIATED: 3P site no longer needs wallet address: import { Address } from '../node_modules/@emurgo/cardano-serialization-lib-asmjs/cardano_serialization_lib.js';
 const payloadURL = "https://gatr-web-api.onrender.com/ops/p/"; // was "http://localhost:3000/ops/p/"
 // Is CSS working?
@@ -267,11 +267,11 @@ function parseTicket(pld) {
     qrcode.write(pld);
     qrcode.make();
     console.log("QR made?")
-console.log(qrcode.toDataURL());
-let qr_img = qrcode.toDataURL();
-document.getElementById("p_inj").innerHTML = `<p>Gate Results</p><img width="200px" src="${qr_img}" />`
+    console.log(qrcode.toDataURL());
+    let qr_img = qrcode.toDataURL();
+    document.getElementById("p_inj").innerHTML = `<p>Gate Results</p><img width="200px" src="${qr_img}" />`
 
-return true;
+    return true;
 }
 
 function parseYT(pld) {
