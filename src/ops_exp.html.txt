@@ -172,7 +172,7 @@ return loadResults;
 }
 // p_P
 function p_P(g_pld) {
-console.log("in parsePayload() with payload [1][0]: ")
+console.log("in parsePayload() with payload [1][0]!: ")
 console.log(g_pld[1][0])
 if(g_pld[0] != "OK") {
   console.log("Payload was false.")
