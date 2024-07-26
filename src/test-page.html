@@ -91,7 +91,7 @@
 					console.log(resp_GE[1])
 					let qrPld = resp_GE[1]
 
-					import('https://cdn.jsdelivr.net/npm/@nuintun/qrcode@latest')
+					import('https://cdn.jsdelivr.net/npm/qrcode@1.5.3/lib/browser.min.js') // was: https://cdn.jsdelivr.net/npm/@nuintun/qrcode@latest
 					.then(module => {
 						const { Encoder } = module
 
