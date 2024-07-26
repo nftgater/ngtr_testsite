@@ -432,4 +432,8 @@ height: -webkit-fill-available;
 		}
 	}
 
+	h1, h2 {
+		color: #000000;
+	}
+
 }
