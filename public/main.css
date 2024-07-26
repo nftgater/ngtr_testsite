@@ -406,6 +406,15 @@ height: -webkit-fill-available;
 	.page_box {
 		background-color: #E26DE2;
 	}
+
+	.page_box {
+		width: unset;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 4em;
+		width: 70vw;
+	}
+
 	.page_subbox {
 		background-color: #FAD9B6;
 		color: black;
