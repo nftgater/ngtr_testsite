@@ -174,10 +174,11 @@ height: -webkit-fill-available;
 }
 
 .centerbox {
-	background: rgb(76 17 91 / 70%) !important;
+	background: rgb(76 17 91 / 70%);
 	padding: 2em;
 	border-radius: 5px;
 	margin: auto;
+	margin-top: 3em;
 	-webkit-box-shadow: 17px 20px 13px 1px rgba(0,0,0,0.58);
 	-moz-box-shadow: 17px 20px 13px 1px rgba(0,0,0,0.58);
 	box-shadow: 17px 20px 13px 1px rgba(0,0,0,0.58);

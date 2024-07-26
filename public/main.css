@@ -174,7 +174,7 @@ height: -webkit-fill-available;
 }
 
 .centerbox {
-	background: rgb(76 17 91 / 70%) !important;
+	background: rgb(76 17 91 / 70%);
 	padding: 2em;
 	border-radius: 5px;
 	margin: auto;
@@ -404,6 +404,11 @@ height: -webkit-fill-available;
 
 #unnimagnum {
 	background-color: #303030;
+
+	.centerbox {
+		background-color: #E26DE2 !important;
+	}
+	
 	.page_box {
 		background-color: #E26DE2 !important;
 		width: unset;
