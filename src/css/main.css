@@ -454,6 +454,15 @@ hr {
 	min-width: 200px;
 }
 
+.footer {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	max-height: 50px;
+	align-items: center;
+	display: inline-flex;
+}
+
 #unnimagnum {
 	background-color: #303030;
 	.centerbox {
@@ -484,11 +493,7 @@ hr {
 		}
 	}
 
-	.footer {
-		margin-top: 4em;
-		position: absolute;
-		bottom: 0px;
-	}
+	
 
 	h1, h2 {
 		color: #000000;
