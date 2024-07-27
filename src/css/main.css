@@ -460,6 +460,10 @@ hr {
 	display: inline-flex;
 }
 
+spacer_sm {
+	height: 20px;
+}
+
 #unnimagnum {
 	background-color: #303030;
 	.centerbox {
@@ -497,7 +501,8 @@ hr {
 	}
 
 	hr {
-		border: 2px solid black;
+		border: 2px solid rgba(0,0,0,.2);
+		width: 75%;
 	}
 
 	.reg_btn {
