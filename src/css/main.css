@@ -77,12 +77,14 @@ html,h1,h2,h3,h4,h5,h6,a{
     padding: 1em;
     font-size: 20px;
     font-weight: bold;
+	display: inline-block;
 }
 
 .button_inline {
     padding: 7px 10px;
     font-size: 16px;
     font-weight: bold;
+	display: flex;
 }
 
 
@@ -451,9 +453,14 @@ hr {
 	background-color: #303030;
 	.centerbox {
 		background-color: #E26DE2 !important;
-		-webkit-box-shadow: 0px 0px 49px 15px rgba(218,255,69,1);
-		-moz-box-shadow: 0px 0px 49px 15px rgba(218,255,69,1);
-		box-shadow: 0px 0px 49px 15px rgba(218,255,69,1);
+		-webkit-box-shadow: 0px 0px 49px 15px rgb(197, 253, 255);
+		-moz-box-shadow: 0px 0px 49px 15px rgb(197, 253, 255);
+		box-shadow: 0px 0px 49px 15px rgb(197, 253, 255);
+		color: white;
+
+		h1 {
+			color: #210202;
+		}
 	}
 
 	.page_box {
@@ -483,6 +490,12 @@ hr {
 	.reg_btn {
 		background-color: blue;
 		color: white;
+
+		a {
+			color: #84ff6b;
+		}
 	}
+
+
 
 }
