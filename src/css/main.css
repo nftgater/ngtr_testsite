@@ -210,10 +210,12 @@ height: -webkit-fill-available;
 	background:#e0e0e0;
 	color:#000;
 }
-.about{
-	margin: 4em 0;
-	padding: 1em;
+.about {
+	border-top: 4px solid #50ff41;
+	padding: 4em;
 	position: relative;
+	background-color: #000;
+	color: #FFF;
 }
 
 .about img{
@@ -449,7 +451,7 @@ hr {
 }
 
 .footer {
-	position: absolute;
+	position: relative;
 	bottom: 0px;
 	left: 0px;
 	min-height: 50px;

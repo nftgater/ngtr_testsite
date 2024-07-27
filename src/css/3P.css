@@ -58,7 +58,7 @@
 
 .nessiebg {
 	background: url("../images/headerback.jpg");
-    background-size: cover;
+    background-size: cover !important;
     background-position: center;
 	text-align: center;
 	padding: 3em;

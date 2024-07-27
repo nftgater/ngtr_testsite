@@ -215,7 +215,7 @@ height: -webkit-fill-available;
 	background:#e0e0e0;
 	color:#000;
 }
-.about{
+.about {
 	padding: 4em;
 	position: relative;
 	background-color: #000;
@@ -455,7 +455,7 @@ hr {
 }
 
 .footer {
-	position: absolute;
+	position: relative;
 	bottom: 0px;
 	left: 0px;
 	max-height: 50px;
