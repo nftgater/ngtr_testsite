@@ -191,6 +191,7 @@ height: -webkit-fill-available;
 	-webkit-box-shadow: 17px 20px 13px 1px rgba(0,0,0,0.58);
 	-moz-box-shadow: 17px 20px 13px 1px rgba(0,0,0,0.58);
 	box-shadow: 17px 20px 13px 1px rgba(0,0,0,0.58);
+	text-align: center;
 
 	h1 {
 		margin-bottom: 1em;
