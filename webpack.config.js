@@ -1,17 +1,27 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const fs = require('fs');
+const glob = require('glob'); // NEW
 
 // Function to generate HtmlWebpackPlugin instances for each HTML file in the src folder
 function generateHtmlPlugins() {
-  const htmlFiles = fs.readdirSync(path.resolve(__dirname, 'src')).filter(file => file.endsWith('.html'));
+  const htmlFiles = glob.sync('./src/**/*.html'); // was: const htmlFiles = fs.readdirSync(path.resolve(__dirname, 'src')).filter(file => file.endsWith('.html'));
 
+  return htmlFiles.map(file => {
+    return new HtmlWebpackPlugin({
+      template: file,
+      filename: path.relative('src', file), // Preserve directory structure in output
+    });
+  });
+
+  /* // was:
   return htmlFiles.map(file => {
     return new HtmlWebpackPlugin({
       template: `./src/${file}`,
       filename: file,
     });
   });
+  */
 }
 
 module.exports = {
