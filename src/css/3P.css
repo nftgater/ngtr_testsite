@@ -62,8 +62,19 @@
     background-position: center;
 	text-align: center;
 	padding: 3em;
-	min-height: 70vh;
-	display: block;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	color: #FFFFFF;
+}
+
+hr {
+	border: 2px solid rgba(0,0,0,0.1);
+	width: 75%;
+}
+
+.crtr_bio {
+	text-align: left;
 }
 
 #p_inj li img {

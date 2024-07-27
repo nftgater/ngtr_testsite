@@ -192,17 +192,7 @@ height: -webkit-fill-available;
 	}
 }
 
-.nessiebg {
-	background: url("../images/headerback.jpg");
-    background-size: cover;
-    background-position: center;
-	text-align: center;
-	padding: 3em;
-	min-height: 100vh;
-	display: flex;
-	align-items: center;
-	color: #FFFFFF;
-}
+
 
 .description h1{
 	color:#fff ;
@@ -471,6 +461,11 @@ spacer_sm {
 	height: 20px;
 }
 
+hr {
+	border: 2px solid rgba(0,0,0,.2);
+	width: 75%;
+}
+
 #unnimagnum {
 	background-color: #303030;
 	.centerbox {
@@ -507,10 +502,7 @@ spacer_sm {
 		color: #000000;
 	}
 
-	hr {
-		border: 2px solid rgba(0,0,0,.2);
-		width: 75%;
-	}
+	
 
 	.reg_btn {
 		background-color: blue;

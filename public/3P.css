@@ -57,13 +57,15 @@
 }
 
 .nessiebg {
-	background: url("./images/headerback.jpg");
+	background: url("../images/headerback.jpg");
     background-size: cover;
     background-position: center;
 	text-align: center;
 	padding: 3em;
-	min-height: 70vh;
-	display: block;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	color: #FFFFFF;
 }
 
 #p_inj li img {
