@@ -47,6 +47,10 @@
   border-radius: 10px;
 }
 
+html {
+	scrollbar-width: none;
+}
+
 #p_inj li:hover {
 	border: 7px solid var(--cta_button2);
 	transform: scale(1.1);

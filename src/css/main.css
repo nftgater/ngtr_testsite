@@ -465,6 +465,10 @@ hr {
 	display: inline-flex;
 }
 
+html {
+	scrollbar-width: none;
+}
+
 spacer_sm {
 	height: 20px;
 }
