@@ -1,141 +1,35 @@
+<html lang="en"><head><title>Test Page</title><link rel="stylesheet" href="../css/bootstrap.min.css"><link rel="stylesheet" href="../css/main.css"><link rel="stylesheet" href="../css/3P.css"><link rel="stylesheet" href="main.css"><link rel="stylesheet" href="3P.css"><link rel="stylesheet" href="/main.css"><link rel="stylesheet" href="/3P.css"><script defer="defer" src="../main.bundle.js"></script><script defer="defer" src="../styles.bundle.js"></script></head><body id="unnimagnum"><nav class="navbar navbar-expand-lg"><ul class="navbar-nav mr-4"><li class="nav-item"><a class="nav-link" data-value="home" href="/">HOME</a></li><li class="nav-item"><a class="nav-link" data-value="Test Page" href="/test-page.html">Gate Tester</a></li><li class="nav-item"><a class="nav-link" data-value="unnimagnum" href="/creators/unnimagnum.html">Unnimagnum</a></li></ul></nav><header class="header"><div class="container"><div class="description" style="position:unset;"><div class="centerbox"><h1>Unnimagnum</h1><script async type="module">// NOTE: This OPS script modified for Vue3
+							import libz from "https://ngtr.nyc3.digitaloceanspaces.com/opsv2.js"
+							try {
 
-<html lang="en">
-<head>
-	<title>Test Page</title>
-	 <!-- add bootstrap css file -->
+								// Style importing Start
+								var cssId = 'myCss';  // you could encode the css path itself to generate id..
+								console.log("DEBUG: testing CSS injection mid-script for OPS")
+								if (!document.getElementById(cssId))
+								{
+									var head  = document.getElementsByTagName('head')[0];
+									var link  = document.createElement('link');
+									link.id   = cssId;
+									link.rel  = 'stylesheet';
+									link.type = 'text/css';
+									link.href = 'https://ngtr.nyc3.digitaloceanspaces.com/3P.css';
+									link.media = 'all';
+									head.appendChild(link);
+								}
 
-	 <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-	 <link rel="stylesheet" type="text/css" href="../css/main.css">
-	 <link rel="stylesheet" type="text/css" href="../css/3P.css">
-	 <link rel="stylesheet" type="text/css" href="main.css">
-	 <link rel="stylesheet" type="text/css" href="3P.css">
-	 <link rel="stylesheet" type="text/css" href="/main.css">
-	 <link rel="stylesheet" type="text/css" href="/3P.css">
-
-</head>
-<body id="unnimagnum">
-
-
-  <!-- navbar -->
-
-  <nav class="navbar navbar-expand-lg ">
-	
-	
-	<ul class="navbar-nav mr-4">
-		
-	 
-   
-		<li class="nav-item">
-		  <a class="nav-link " data-value="home" href="/">HOME</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" data-value="Test Page" href="/test-page.html">Gate Tester</a>
-		  </li>
-
-		<li class="nav-item">
-			<a class="nav-link " data-value="unnimagnum" href="/creators/unnimagnum.html">Unnimagnum</a>
-		</li>
-	  </ul>
-  
-</div>
-</nav>
-<header class="header ">
-   <div class="container">
-   	  <div class="description" style="position:unset;">
-		<div class="centerbox">
-  			<h1>Unnimagnum</h1>
-  			<!-- BOOKMARK: Implement OPSv2.JS, overwrite this script when done (being edited in the API SDK arbitrarily)-->
-
-
-			<!-- ON-PAGE-SCRIPT --> 
-			<script async type="module">  // NOTE: This OPS script modified for Vue3
-				import libz from "https://ngtr.nyc3.digitaloceanspaces.com/opsv2.js"
-				try {
-
-					// Style importing Start
-					var cssId = 'myCss';  // you could encode the css path itself to generate id..
-					console.log("DEBUG: testing CSS injection mid-script for OPS")
-					if (!document.getElementById(cssId))
-					{
-						var head  = document.getElementsByTagName('head')[0];
-						var link  = document.createElement('link');
-						link.id   = cssId;
-						link.rel  = 'stylesheet';
-						link.type = 'text/css';
-						link.href = 'https://ngtr.nyc3.digitaloceanspaces.com/3P.css';
-						link.media = 'all';
-						head.appendChild(link);
-					}
-					// Style importing end
-
-					document.getElementById("ops_start").addEventListener("click", () => {  
-					let callback = window.location;
-					window.location = `https://janus-auth.vercel.app/?callback=${callback}`; // on J2 site it is: https%3A%2F%2Fwww.jesus-2.com%2Fwatch
-					}) 
-					let auth = libz.g_A()
-					if(auth) { 
-					document.getElementById("statusconsole").innerHTML = "&#9989; Loading gate payload..."
-					libz.g_E(auth); 
-					} else { 
-					libz.drawBtn(); 
-					document.getElementById("statusconsole").innerHTML = "&#9889; Authenticate wallet to begin." 
-					} 
-				}catch(err) {
-					console.log("caught in ops:")
-					console.log(err)
-				}
-				
-				</script> 
-				<div id="authbox"> 
-				<button id="ops_start" style="display:none;">Token Portal</button> 
-				<div id="statusconsole" class="statusconsole">Initializing...</div><div id="p_inj"></div>
-				
-				</div> 
-				<!-- ON-PAGE-SCRIPT END -->
-				
-			</div>
-		</div>
-	</div>
-</header>
-
-<div class="page_box">
-	<h1>About the Creator</h1>
-	<div class="page_subbox">
-		<p>Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. </p>
-		<img src="unnimagnum.jpg" width="150px" />
-		<div class="button_md reg_btn"><a href="https://unnimagnum.com/">WEBSITE</a></div>
-	</div>
-	<div class="page_subbox">
-		<h2>About This NFT</h2>
-		<p>Description for the NFT related to these token gates coming soon. Description for the NFT related to these token gates coming soon. </p>
-		<ul>
-			<li>Policy: XYZ</li>
-			<li>Policy Locked: true</li>
-			<li>Total Available: 10,000</li>
-			<li>Price: 50 ADA</li>
-		</ul>
-		<p>See all gates found for this NFT collection in <a href="https://nftgater.vercel.app/gate_search?q_wallet=&q_url=&q_asset=xyz&q_userid=&submit=SEARCH">GATR Gate Marketplace</a></p>
-		<div class="button_lg reg_btn"><a href="https://unnimagnum.com/">Mint NFT</a></div>
-	</div>
-	<div class="page_subbox">
-		<p>Visit the GATR profile for this creator</p>
-		<div class="button_md reg_btn"><a href="https://nftgater.vercel.app/profiles?userid=pX9YBvE8UrEs5QlnfQUStcow7dL0tb">VISIT</a></div> 
-	</div>
-</div>
-
-<footer class="footer mt-auto py-3" style="background-color:#264653;margin-top:4em;width:100%;background:url('/images/gatr_wall4sm.jpg')">
-	<div class="container" style="text-align: center;">
-		<b><a style="color:#E9C46A;" href="https://nftgater.vercel.app">MADE BY NFT GATER</a></b>
-	</div>
-  </footer>
-
-  <script type="text/javascript" src='styles.bundle.js'></script>
-  <script type="text/javascript" src='./css/index.js'></script>
-  <script type="text/javascript" src='/styles.bundle.js'></script>
-  <script type="text/javascript" src='main.bundle.js'></script>
-  <script type="text/javascript" src="./js/jquery.min.js"></script>
-  <script type="text/javascript" src="./js/bootstrap.min.js"></script>
-  <script type="text/javascript" src='./js/index.js'></script>
- 
-</body>
-</html>
+								document.getElementById("ops_start").addEventListener("click", () => {  
+								let callback = window.location;
+								window.location = `https://janus-auth.vercel.app/?callback=${callback}`; // on J2 site it is: https%3A%2F%2Fwww.jesus-2.com%2Fwatch
+								}) 
+								let auth = libz.g_A()
+								if(auth) { 
+								document.getElementById("statusconsole").innerHTML = "&#9989; Loading gate payload..."
+								libz.g_E(auth); 
+								} else { 
+								libz.drawBtn(); 
+								document.getElementById("statusconsole").innerHTML = "&#9889; Authenticate wallet to begin." 
+								} 
+							}catch(err) {
+								console.log("caught in ops:")
+								console.log(err)
+							}</script><div id="authbox"><button id="ops_start" style="display:none;">Token Portal</button><div id="statusconsole" class="statusconsole">Initializing...</div><div id="p_inj"></div></div></div></div></div></header><div class="page_box"><h1>About the Creator</h1><div class="page_subbox"><div class="crtr_col2"><div class="crtr_pimg f_col"><img src="unnimagnum.jpg" width="400px" height="400px"/></div><div class="crtr_bio f_col"><p>Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon. Bio coming soon.</p><div class="button_md reg_btn"><a href="https://unnimagnum.com/">WEBSITE</a></div></div></div><hr/><div class="crtr_biox"><iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=WV0U1G1bY3EnKBHl&amp;list=OLAK5uy_lMl1GVAO9rtOytTZ9kOj5_R4oQg_VToF0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div><div class="page_subbox"><div class="crtr_col2"><div class="crtr_pimg f_col"><img src="nft_default_lg.jpg" width="400px" height="400px"/></div><div class="crtr_nft f_col"><div class="crtr_bio f_col"><h2>NFT Collection</h2><p>No information about active NFTs available at the moment, please check back later.</p><ul><li>Policy: -</li><li>Policy Locked: -</li><li>Total Available: -</li><li>Price: -</li></ul><p>See all utilities for this NFT at <a href="https://nftgater.vercel.app/gate_search?q_wallet=&q_url=&q_asset=xyz&q_userid=&submit=SEARCH">GATR Gate Marketplace</a></p><div class="button_md reg_btn"><a style="font-weight: bold; text-decoration: line-through;color:#264653">MINT</a></div></div></div></div></div></div><footer class="footer mt-auto py-3" style="background-color:#264653;margin-top:4em;width:100%;background:url('/images/gatr_wall4sm.jpg')"><div class="container" style="text-align: center;"><b><a style="color:#E9C46A;" href="https://nftgater.vercel.app">MADE BY NFT GATER</a></b></div></footer><script src="styles.bundle.js"></script><script src="./css/index.js"></script><script src="/styles.bundle.js"></script><script src="main.bundle.js"></script><script src="./js/jquery.min.js"></script><script src="./js/bootstrap.min.js"></script><script src="./js/index.js"></script></body></html>
