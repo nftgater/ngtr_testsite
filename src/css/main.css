@@ -181,6 +181,10 @@ height: -webkit-fill-available;
 	-webkit-box-shadow: 17px 20px 13px 1px rgba(0,0,0,0.58);
 	-moz-box-shadow: 17px 20px 13px 1px rgba(0,0,0,0.58);
 	box-shadow: 17px 20px 13px 1px rgba(0,0,0,0.58);
+
+	h1 {
+		margin-bottom: 1em;
+	}
 }
 
 .nessiebg {
@@ -447,6 +451,7 @@ hr {
 	font-weight: bold;
 	border: 1px solid black;
 	border-radius: 20px;
+	min-width: 200px;
 }
 
 #unnimagnum {
@@ -459,7 +464,7 @@ hr {
 		color: white;
 
 		h1 {
-			color: #210202;
+			color: #3f0303;
 		}
 	}
 
@@ -484,7 +489,7 @@ hr {
 	}
 
 	hr {
-		border: 2px solid green;
+		border: 2px solid black;
 	}
 
 	.reg_btn {
