@@ -60,9 +60,15 @@ html,h1,h2,h3,h4,h5,h6,a{
 		color: #69FCCD;
 	}
 
-	p {
-		color: #FFFFFF;
-	}
+	
+}
+
+.crtr_bio {
+	text-align: left;
+}
+
+p {
+	margin-top: 1em;
 }
 
 .button_lg {
@@ -449,6 +455,7 @@ hr {
 	border: 1px solid black;
 	border-radius: 20px;
 	min-width: 200px;
+	text-align: center;
 }
 
 .footer {
