@@ -216,6 +216,10 @@ height: -webkit-fill-available;
 	position: relative;
 	background-color: #000;
 	color: #FFF;
+
+	h1, h2, h3, h4, p {
+		color: #FFF;
+	}
 }
 
 .about img{
