@@ -1,9 +1,13 @@
 body {
 	padding: 0;
 	margin: 0;
-	background:#cff0ee;
 
 }
+
+html {
+	scrollbar-width: none;
+}
+
 html,h1,h2,h3,h4,h5,h6,a{
 	font-family: "Raleway";
 }
@@ -216,9 +220,10 @@ height: -webkit-fill-available;
 	color:#000;
 }
 .about{
-	margin: 4em 0;
-	padding: 1em;
+	padding: 4em;
 	position: relative;
+	background-color: #000;
+	color: #FFF;
 }
 
 .about img{
