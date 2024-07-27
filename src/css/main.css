@@ -458,7 +458,7 @@ hr {
 	position: absolute;
 	bottom: 0px;
 	left: 0px;
-	max-height: 50px;
+	min-height: 50px;
 	align-items: center;
 	display: inline-flex;
 }
