@@ -219,10 +219,7 @@ height: -webkit-fill-available;
 	padding: 1em;
 	position: relative;
 }
-.about h1{
-	color:#c91313;
-	margin: 2em;
-}
+
 .about img{
 	height: 100%;
     width: 100%;
