@@ -16,14 +16,22 @@ function generateHtmlPlugins() {
   });
   */
 
-  const htmlFiles = glob.sync('./src/**/*.html');
-
+  
+  // const htmlFiles = glob.sync('./src/**/*.html');
+  /* Mkay trying another way
   return htmlFiles.map(file => {
     return new HtmlWebpackPlugin({
       template: file,
       filename: path.relative('src', file), // Preserve directory structure in output
     });
   });
+  */
+
+  const htmlFiles = glob.sync('./src/**/*.html');
+  return htmlFiles.map(file => new HtmlWebpackPlugin({
+    template: file,
+    filename: path.relative('src', file),
+  }));
 
 
 }
