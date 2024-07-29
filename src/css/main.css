@@ -526,5 +526,84 @@ hr {
 	}
 
 
+	.nav-item {
+		display: inline-flex;
+		text-align: center;
+	}
+
+	/* Small to Medium Phones */
+	@media (max-width: 375px) {
+		.page_box {
+			width: calc(100vw - 4em);	
+		}
+
+		.crtr_col2 {
+			display: inline-block;
+			grid-template-columns: unset;
+		}
+
+		.f_col {
+			text-align: center;
+			margin: 1em;
+			margin-top: 2em;
+
+			ul {
+				list-style: none;
+			}
+		}
+
+		hr {
+			margin-block-start: 1em;
+			margin-block-end: 2em;
+		}
+
+		.page_subbox {
+			margin: 1em;
+			margin-top: 3em;
+		}
+
+		.m_frame {
+			width: 300px;
+			height: 169px;
+		}
+	}
+	
+	/* Large Phones and Tablets */
+	@media (min-width: 376px) and (max-width: 768px) {
+		/* bookmark: add all same here */
+		.page_box {
+			width: calc(100vw - 4em);	
+		}
+
+		.crtr_col2 {
+			display: inline-block;
+			grid-template-columns: unset;
+		}
+
+		.f_col {
+			text-align: center;
+			margin: 1em;
+			margin-top: 2em;
+
+			ul {
+				list-style: none;
+			}
+		}
+
+		hr {
+			margin-block-start: 1em;
+			margin-block-end: 2em;
+		}
+
+		.page_subbox {
+			margin: 1em;
+			margin-top: 3em;
+		}
+
+		.m_frame {
+			width: 500px;
+			height: 281px;
+		}
+	}
 
 }
