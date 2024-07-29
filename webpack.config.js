@@ -5,7 +5,18 @@ const glob = require('glob'); // NEW
 
 // Function to generate HtmlWebpackPlugin instances for each HTML file in the src folder
 function generateHtmlPlugins() {
-  const htmlFiles = glob.sync('./src/**/*.html'); // was: const htmlFiles = fs.readdirSync(path.resolve(__dirname, 'src')).filter(file => file.endsWith('.html'));
+  // testing newer version
+  // const htmlFiles = glob.sync('./src/**/*.html'); // was: const htmlFiles = fs.readdirSync(path.resolve(__dirname, 'src')).filter(file => file.endsWith('.html'));
+  /* 
+  return htmlFiles.map(file => {
+    return new HtmlWebpackPlugin({
+      template: file,
+      filename: path.relative('src', file), // Preserve directory structure in output
+    });
+  });
+  */
+
+  const htmlFiles = glob.sync('./src/**/*.html');
 
   return htmlFiles.map(file => {
     return new HtmlWebpackPlugin({
@@ -14,14 +25,7 @@ function generateHtmlPlugins() {
     });
   });
 
-  /* // was:
-  return htmlFiles.map(file => {
-    return new HtmlWebpackPlugin({
-      template: `./src/${file}`,
-      filename: file,
-    });
-  });
-  */
+
 }
 
 module.exports = {
@@ -32,9 +36,12 @@ module.exports = {
   output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
+      publicPath: '/'
   },
   devServer: {
-    static: path.resolve(__dirname, 'dist'),
+    static: {
+      directory: path.resolve(__dirname, 'dist'),
+    },
     port: 8080,
     hot: true
   },
