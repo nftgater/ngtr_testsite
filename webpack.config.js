@@ -39,7 +39,7 @@ function generateHtmlPlugins() {
 module.exports = {
   entry: {
     main: './src/js/index.js', 
-    styles: './src/css/index.js'
+    // styles: './src/css/index.js' // CUNT FUCK CUNT CUUUUUUUNT
   }, // Entry point is main.js in src/js directory
   output: {
       filename: '[name].bundle.js',

@@ -13,12 +13,6 @@ app.get('*', (req, res) => {
 });
 */
 
-// usually not needed
-app.get('/css/main.css', (req, res) => {
-    res.type('text/css');
-    res.sendFile(path.join(__dirname, 'dist', 'css', 'main.css'));
-});
-  
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));
