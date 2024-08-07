@@ -502,6 +502,21 @@ hr {
 		width: 300px !important;
 		height: 169px !important;
 	}
+
+	.crtr_pimg img {
+		width: 100%;
+		height: auto;
+	}
+
+	.f_col {
+		text-align: center !important;
+		margin: 1em;
+		margin-top: 2em;
+
+		ul {
+			list-style: none;
+		}
+	}
 }
 
 /* ********************* MOBILE SETTINGS *************** */
@@ -517,15 +532,7 @@ hr {
 		grid-template-columns: unset;
 	}
 
-	.f_col {
-		text-align: center;
-		margin: 1em;
-		margin-top: 2em;
 
-		ul {
-			list-style: none;
-		}
-	}
 
 	hr {
 		margin-block-start: 1em;
