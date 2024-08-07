@@ -439,6 +439,7 @@ height: -webkit-fill-available;
     grid-template-columns: 500px auto;
     padding: 10px;
 	align-items: center;
+	width: calc(100% - 2em);
 }
 
 .crtr_pimg img {
