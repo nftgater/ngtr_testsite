@@ -56,6 +56,11 @@
 	background: transparent;
 }
 
+.m_frame {
+	width: 640px;
+	height: 360px;
+}
+
 .nessiebg {
 	background: url("../images/headerback.jpg");
     background-size: cover !important;

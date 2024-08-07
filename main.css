@@ -478,6 +478,11 @@ hr {
 	width: 75%;
 }
 
+.m_frame {
+	width: 640px;
+	height: 360px;
+}
+
 /* ********************* MOBILE SETTINGS *************** */
 /* Large Phones and Tablets */
 @media (min-width: 376px) and (max-width: 768px) {
